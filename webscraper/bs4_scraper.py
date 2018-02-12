@@ -26,10 +26,19 @@ housingData = soup.find_all("table")
 for string in soup.table.stripped_strings:
     print(repr(string).replace("'", ""))
 
+for i in range(0,len(soup.table)):
+    print(i)
+    for string in soup.table.stripped_strings:
+        if i > 4:
+            print(repr(string).replace("'", ""))
 
-for i, string in soup.table.stripped_strings:
-    if i > 4:
+###### works how I want it to, gets only the property data inside of the table
+i = 0
+for string in soup.table.stripped_strings:
+    i += 1
+    if i > 5:
         print(repr(string).replace("'", ""))
+##############################################################################
 
 
 # finds all tags that start with a 'b' and lists their text

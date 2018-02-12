@@ -1,0 +1,33 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<!-- Start Top Bar, sticky -->
+<div data-sticky-container>
+  <div class="top-bar row" data-sticky data-options="marginTop:0;" style="width:100%">
+    <div class="top-bar-left large-offset-2 large-6 columns">
+      <p align="center"> <a class="linkColor" href="/#/"> Lovin Real Estate </a> </p>
+    </div>
+    <div class="top-bar-right large-offset-3 large-1 columns end hide-for-small-only">
+      <h5 align="center" class="rightheadertext"> Code Violations Database </h5>
+    </div>
+  </div>
+</div>
+<!-- End Top Bar -->
+
+<!-- Start Body -->
+<!-- <div style="background-color: #F1F0F0"> -->
+<div style="background-color: #F1F0F0; height: 600px;">
+   <br> <p align="center"><font size="4"> BODY </p>
+   <hr><br>
+</div>
+<!-- End Body -->
+
+{% endblock %}
+
+{% block script %}
+{% endblock script %}

@@ -1,4 +1,4 @@
-import re
+# import re
 import requests
 from bs4 import BeautifulSoup
 from .models import *
@@ -19,30 +19,37 @@ print(numInt.replace("'",""))
 i = 0
 for string in soup.table.stripped_strings:
     if i > 4:
-        print(repr(string).replace("'", ""))
+        print(string)
     i += 1
 #############################################################################
 
+
+#############################################################################
+############################ THIS IS WORKING ################################
+#############################################################################
+housingData = soup.find_all("td")
 from webscraper.models import *
 i = 0
 j = 0
-for string in soup.table.stripped_strings:
-    # if i > 8 and i < 25:
-    if i > 8:
+for string in housingData:
+    if i > 22:
+        # if string.text == "":
+        #     # print("*** NOT A STRING, OR BLANK ***")
+        #     j += 1
         if j == 0:
-            house_caseNum = repr(string).replace("'", "")
+            house_caseNum = string.text.strip()
             print('j = ' + str(j) + " , caseNum = " + house_caseNum)
             j += 1
         elif j == 1:
-            house_streetNum = repr(string).replace("'", "")
+            house_streetNum = string.text.strip()
             print('j = ' + str(j) + " , streetNum = " +  house_streetNum)
             j += 1
         elif j == 2:
-            house_streetName = repr(string).replace("'", "")
+            house_streetName = string.text.strip()
             print('j = ' + str(j) + " , streetName = " +  house_streetName)
             j += 1
         elif j == 3:
-            house_category = repr(string).replace("'", "")
+            house_category = string.text.strip()
             print('j = ' + str(j) + " , category = " +  house_category)
             addProperty = House(caseNum=house_caseNum,
                                 streetNum=house_streetNum,
@@ -51,6 +58,87 @@ for string in soup.table.stripped_strings:
             addProperty.save()
             j = 0
     i += 1
+
+######### loop to delete entire contents of House model #########
+for x in House.objects.all().iterator(): x.delete()
+
+
+# soup.table.stripped_strings strips away the empty fields,
+# which messes up populating my House model objects
+# this combo works to find the empty data fields
+housingData = soup.find_all("td")
+i = 0
+j = 0
+for string in housingData:
+    if i > 8:
+        print(string.text)
+        # if string.text == "":
+        #     j += 1
+        #     print("empty string " + str(j) + "   *** NOT A STRING, OR BLANK ***")
+    i += 1
+
+i = 0
+j = 0
+for string in housingData:
+    if i > 17:
+        print(string.text)
+        # if string.text == "":
+        #     j += 1
+        #     print("empty string " + str(j) + "   *** NOT A STRING, OR BLANK ***")
+    i += 1
+
+################# testing for blank data fields
+i = 0
+j = 0
+for string in soup.table.stripped_strings:
+# for string in housingData:
+# for string in soup.table.strings:
+    # if i > 9:
+    if i > 8:
+        print(string)
+        # print(string.text)
+        # print(string.text.strip())
+        # print(string.text.replace("\n",""))
+        # if string.text == "":
+        #     j += 1
+        #     print("empty string " + str(j) + "   *** NOT A STRING, OR BLANK ***")
+        # returns too many results
+        # if string.text.strip() == "":
+        #     print("*** NOT A STRING, OR BLANK ***")
+    i += 1
+
+
+
+########### working need to check for blank data fields ####################
+from webscraper.models import *
+i = 0
+j = 0
+for string in soup.table.stripped_strings:
+    # if i > 8 and i < 25:
+    if i > 8:
+        if j == 0:
+            house_caseNum = string
+            print('j = ' + str(j) + " , caseNum = " + house_caseNum)
+            j += 1
+        elif j == 1:
+            house_streetNum = string
+            print('j = ' + str(j) + " , streetNum = " +  house_streetNum)
+            j += 1
+        elif j == 2:
+            house_streetName = string
+            print('j = ' + str(j) + " , streetName = " +  house_streetName)
+            j += 1
+        elif j == 3:
+            house_category = string
+            print('j = ' + str(j) + " , category = " +  house_category)
+            addProperty = House(caseNum=house_caseNum,
+                                streetNum=house_streetNum,
+                                streetName=house_streetName,
+                                category=house_category)
+            addProperty.save()
+            j = 0
+    i += 1
+#######################################################################
 
 
 ######### loop to delete entire contents of House model #########
@@ -62,3 +150,62 @@ for string in soup.table.stripped_strings:
     if i > 8 and i < 25:
         print(repr(string).replace("'", ""))
     i += 1
+
+
+
+
+
+
+#######################################################################
+#######################################################################
+#######################################################################
+#######################################################################
+#######################################################################
+#######################################################################
+#######################################################################
+#######################################################################
+#######################################################################
+housingData = soup.find_all("tbody")
+housingData = soup.find_all("td") # closest match
+housingData = soup.find_all("tr") # no addresses
+# unless print item.text
+
+housingData = soup.find_all("table")
+
+
+########### working the best ###########
+for string in soup.table.stripped_strings:
+    print(repr(string).replace("'", ""))
+
+
+# finds all tags that start with a 'b' and lists their text
+for tag in soup.find_all(re.compile("^b")):
+    print(tag.text.replace("\n",""))
+
+for item in housingData:
+    print(item.text.replace("\n",""))
+
+# print(soup.table.text.replace("     ",""))
+############## returns the same thing as:
+# housingData = soup.find_all("tr")    , then,
+# for item in housingData:
+#     print(item.text)
+
+# one row = 4 columns
+# iterate through the soup and create 1 row
+# for every 4 items
+
+for item in housingData:
+    print(item.text.replace("\n",""))
+
+for item in housingData:
+    print(item.text)
+
+for item in housingData:
+    print(item.contents)
+
+for item in housingData:
+    print(item.contents[1])
+
+for item in housingData:
+    print(item.contents[1].text.replace("\n",""))

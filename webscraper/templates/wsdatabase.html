@@ -5,6 +5,7 @@
 {{ title }}
 {% endblock %}
 
+
 {% block content %}
 <!-- Start Top Bar, sticky -->
 <div data-sticky-container>
@@ -19,13 +20,125 @@
 </div>
 <!-- End Top Bar -->
 
-<!-- Start Body -->
-<!-- <div style="background-color: #F1F0F0"> -->
-<div style="background-color: #F1F0F0; height: 600px;">
-   <br> <p align="center"><font size="4"> BODY </p>
-   <hr><br>
+
+<!-- Start table div -->
+<div class="background">
+   <br>
+
+   <div class="propertySearch">
+      <!-- <p text-align="center">Filter Results:</p> -->
+      <div class="row">
+         <p class="filterResults">Filter Results By The Following:</p>
+         <div class="small-12 columns">
+
+            <div class="small-3 columns">
+               <label>Category
+                  <select>
+                     <option value="husker"></option>
+                     <option value="husker">Substandard Vacant Building</option>
+                     <option value="starbuck">Starbuck</option>
+                     <option value="hotdog">Hot Dog</option>
+                     <option value="apollo">Apollo</option>
+                  </select>
+               </label>
+            </div>
+
+            <div class="small-2 columns">
+               <label>Property Age
+                  <select>
+                     <option value="husker"></option>
+                     <option value="starbuck">Starbuck</option>
+                     <option value="hotdog">Hot Dog</option>
+                     <option value="apollo">Apollo</option>
+                  </select>
+               </label>
+            </div>
+
+            <div class="small-2 columns">
+               <label>Equity Value
+                  <select>
+                     <option value="husker"></option>
+                     <option value="starbuck">Starbuck</option>
+                     <option value="hotdog">Hot Dog</option>
+                     <option value="apollo">Apollo</option>
+                  </select>
+               </label>
+            </div>
+
+            <div class="small-2 columns">
+               <label>Currently Occupied
+                  <select>
+                     <option value="husker"></option>
+                     <option value="starbuck">Starbuck</option>
+                     <option value="hotdog">Hot Dog</option>
+                     <option value="apollo">Apollo</option>
+                  </select>
+               </label>
+            </div>
+
+            <div class="small-2 columns">
+               <label>Last Sale Date
+                  <select>
+                     <option value="husker"></option>
+                     <option value="starbuck">Starbuck</option>
+                     <option value="hotdog">Hot Dog</option>
+                     <option value="apollo">Apollo</option>
+                  </select>
+               </label>
+            </div>
+
+            <div class="small-1 columns" style="padding-top: 23px">
+               <button class="button" href="#">Search</button>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+
+   <hr class="customColor">
+
+
+   <div class="tableDiv">
+      <table class="hover">
+         <thead>
+            <tr>
+            <th width="200">Table Header</th>
+            <th>Table Header</th>
+            <th width="150">Table Header</th>
+            <th width="150">Table Header</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>Content Goes Here</td>
+               <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+               <td>Content Goes Here</td>
+               <td>Content Goes Here</td>
+            </tr>
+            <tr>
+               <td>Content Goes Here</td>
+               <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+               <td>Content Goes Here</td>
+               <td>Content Goes Here</td>
+            </tr>
+            <tr>
+               <td>Content Goes Here</td>
+               <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+               <td>Content Goes Here</td>
+               <td>Content Goes Here</td>
+            </tr>
+            <tr>
+               <td>Content Goes Here</td>
+               <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+               <td>Content Goes Here</td>
+               <td>Content Goes Here</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
 </div>
-<!-- End Body -->
+<!-- End table div -->
 
 {% endblock %}
 

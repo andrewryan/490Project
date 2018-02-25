@@ -1,4 +1,4 @@
-/*Start top bar CSS*/
+/* Start top bar CSS */
 div.top-bar{
   position: static;
   background-color: white;
@@ -12,77 +12,37 @@ div.top-bar-left{
   font-family: lucida;
   font-size: 40px;
 }
-a.linkColor{
-  color: #000000;
-}
 div.top-bar-right{
   position: relative;
   top:28%;
   padding-bottom: 20px;
 }
-h5.rightheadertext{
-  font-weight: bold;
-}
-/*End top bar CSS*/
-
-
-/*Start main body background CSS*/
-div.image{
-  position: relative;
-  background-repeat:no-repeat;
-  background-size: 100% 100%;
-  height:625px;
-  opacity: 1.0;
-}
-p.imageText{
-  line-height: 120%;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: lucida;
-  color: #2A2929;
-}
-span.imageNumber{
-  font-size: 30px;
-  font-weight: bold;
-  font-family: lucida;
-  color: #2A2929;
-}
-.bodyPadding{
-  padding: 0px 10px 0px 10px;
-}
-p.largeStepAlignment{
-  padding-left: 18.5%;
-}
-p.stepAlignment{
-  padding-left: 5%;
-}
-/*End main body background CSS*/
-
-
-/*Start translucent-form-overlay css */
-.translucent-form-overlay {
-  max-width: 500px;
-  width: 100%;
-  background-color: rgba(54, 54, 54, 0.8);
-  padding: 20px;
-  color: #fefefe;
-}
-.translucent-form-overlay .columns.row {
-  display: block;
-}
-.translucent-form-overlay h3, .translucent-form-overlay label {
-  color: #fefefe;
-}
-.translucent-form-overlay input, .translucent-form-overlay select {
+a.linkColor{
   color: #000000;
 }
-.translucent-form-overlay input::-webkit-input-placeholder {
-  color: #8a8a8a;
+/* End top bar CSS */
+
+div.tableDiv{
+  /* height: 200px; */
+  margin: auto;
+  width: 80%;
+  border: 2px solid #CACACA;
+  padding: 1rem;
 }
-.translucent-form-overlay input:-ms-input-placeholder {
-  color: #8a8a8a;
+div.background{
+   background-color: #CACACA;
 }
-.translucent-form-overlay input::placeholder {
-  color: #8a8a8a;
+hr.customColor{
+   height: 2px;
+   background-color: #505050;
 }
-/*End translucent-form-overlay css*/
+div.propertySearch{
+   /* border: 2px solid #505050; */
+   padding: 1rem;
+   width: 90%;
+   margin: auto;
+}
+p.filterResults{
+   text-align: center;
+   font-weight: bold;
+}

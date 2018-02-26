@@ -34,11 +34,22 @@
             <div class="small-3 columns">
                <label>Category
                   <select>
-                     <option value="husker"></option>
-                     <option value="husker">Substandard Vacant Building</option>
-                     <option value="starbuck">Starbuck</option>
-                     <option value="hotdog">Hot Dog</option>
-                     <option value="apollo">Apollo</option>
+                     <option> </option>
+                     <option value="Substandard Vacant Building"> Substandard Vacant Building </option>
+                     <option value="Substandard Building"> Substandard Building </option>
+                     <option value="Complaint"> Complaint </option>
+                     <option value="Single Room Occupancy"> SRO - Single Room Occupancy </option>
+                     <option value="Vacant Building"> Vacant Building </option>
+                     <option value="City Attorney"> City Attorney </option>
+                     <option value="Dangerous Building"> Dangerous Building </option>
+                     <option value="Stagnant Water"> Stagnant Water </option>
+                     <option value="Fire Reports"> Fire Reports </option>
+                     <option value="Penalty Waiver Agreement"> Penalty Waiver Agreement </option>
+                     <option value="HSG Boarded"> HSG Boarded </option>
+                     <option value="Emergency On Call"> Emergency On Call </option>
+                     <option value="Marijuana"> Marijuana </option>
+                     <option value="Police Reports"> Police Reports </option>
+                     <option value="Junk & Debris"> Junk & Debris </option>
                   </select>
                </label>
             </div>
@@ -46,10 +57,13 @@
             <div class="small-2 columns">
                <label>Property Age
                   <select>
-                     <option value="husker"></option>
-                     <option value="starbuck">Starbuck</option>
-                     <option value="hotdog">Hot Dog</option>
-                     <option value="apollo">Apollo</option>
+                     <option> </option>
+                     <option value="10 Years Old"> 10 Years Old </option>
+                     <option value="10-20 Years Old"> 10-20 Years Old </option>
+                     <option value="20-30 Years Old"> 20-30 Years Old </option>
+                     <option value="30-40 Years Old"> 30-40 Years Old </option>
+                     <option value="40-50 Years Old"> 40-50 Years Old </option>
+                     <option value="50+ Years Old"> 50+ Years Old </option>
                   </select>
                </label>
             </div>
@@ -57,10 +71,12 @@
             <div class="small-2 columns">
                <label>Equity Value
                   <select>
-                     <option value="husker"></option>
-                     <option value="starbuck">Starbuck</option>
-                     <option value="hotdog">Hot Dog</option>
-                     <option value="apollo">Apollo</option>
+                     <option> </option>
+                     <option value="Full Equity"> Full Equity </option>
+                     <option value="Within 10% "> Within 10% </option>
+                     <option value="10-15%"> 10-15% </option>
+                     <option value="15-20%"> 15-20% </option>
+                     <option value="Over 20%"> Over 20% </option>
                   </select>
                </label>
             </div>
@@ -68,10 +84,9 @@
             <div class="small-2 columns">
                <label>Currently Occupied
                   <select>
-                     <option value="husker"></option>
-                     <option value="starbuck">Starbuck</option>
-                     <option value="hotdog">Hot Dog</option>
-                     <option value="apollo">Apollo</option>
+                     <option> </option>
+                     <option value="Yes"> Yes </option>
+                     <option value="No"> No </option>
                   </select>
                </label>
             </div>
@@ -79,16 +94,17 @@
             <div class="small-2 columns">
                <label>Last Sale Date
                   <select>
-                     <option value="husker"></option>
-                     <option value="starbuck">Starbuck</option>
-                     <option value="hotdog">Hot Dog</option>
-                     <option value="apollo">Apollo</option>
+                     <option> </option>
+                     <option value="starbuck"> Within 10 Years</option>
+                     <option value="hotdog"> 10-20 Years Ago </option>
+                     <option value="apollo"> 20-30 Years Ago </option>
+                     <option value="apollo"> More Than 30 Years Ago </option>
                   </select>
                </label>
             </div>
 
             <div class="small-1 columns" style="padding-top: 23px">
-               <button class="button" href="#">Search</button>
+               <button class="button" type="submit">Search</button>
             </div>
 
          </div>
@@ -99,41 +115,33 @@
    <hr class="customColor">
 
 
+   <!-- {% if house_total %}
+      <p>house total</p>
+   {% endif %} -->
+
+
    <div class="tableDiv">
       <table class="hover">
          <thead>
             <tr>
-            <th width="200">Table Header</th>
-            <th>Table Header</th>
-            <th width="150">Table Header</th>
-            <th width="150">Table Header</th>
+            <th width="150">Case #</th>
+            <th width="150">Street #</th>
+            <th width="250">Street Name</th>
+            <th>Category</th>
             </tr>
          </thead>
+
          <tbody>
+
+            {% for object in house_list %}
             <tr>
-               <td>Content Goes Here</td>
-               <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-               <td>Content Goes Here</td>
-               <td>Content Goes Here</td>
+               <td> <a href="/propertyInfo/"> {{ object.caseNum }}</a> </td>
+               <td> {{ object.streetNum }} </td>
+               <td> {{ object.streetName }} </td>
+               <td> {{ object.category }} </td>
             </tr>
-            <tr>
-               <td>Content Goes Here</td>
-               <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-               <td>Content Goes Here</td>
-               <td>Content Goes Here</td>
-            </tr>
-            <tr>
-               <td>Content Goes Here</td>
-               <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-               <td>Content Goes Here</td>
-               <td>Content Goes Here</td>
-            </tr>
-            <tr>
-               <td>Content Goes Here</td>
-               <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-               <td>Content Goes Here</td>
-               <td>Content Goes Here</td>
-            </tr>
+            {% endfor %}
+
          </tbody>
       </table>
    </div>

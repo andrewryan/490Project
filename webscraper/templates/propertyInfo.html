@@ -22,43 +22,120 @@
 
 
 <div class="background">
-   <br>
+   <br><br>
+   <h4 align="center">Property Info for {{ property_info.streetNum }}
+   {{ property_info.streetName }}</h4>
 
    <hr class="customColor">
 
-   <div class="tableDiv">
-      <p>Property Info for {{ property_info.streetNum }} {{ property_info.streetName }}</p>
-      <table class="hover">
-         <thead>
-            <tr>
-            <th style="text-align:center">Property Info</th>
-            </tr>
-         </thead>
+   <div class="row">
+      <div class="small-12 columns">
+         <div class="small-3 columns">
+            <p> </p>
+         </div>
 
-         <tbody>
-            <tr>
-               <td> {{ property_info.caseNum }} </td>
-               <td> {{ property_info.streetNum }} </td>
-               <td> {{ property_info.streetName }} </td>
-               <td> {{ property_info.category }} </td>
-            </tr>
+         <div class="tableDiv, small-6 columns">
+            <table class="hover">
+               <tbody>
+                  <tr>
+                     <td width="30%"> Case # </td>
+                     <td> {{ property_info.caseNum }} </td>
+                  </tr>
+                  <tr>
+                     <td> Street # </td>
+                     <td> {{ property_info.streetNum }} </td>
+                  </tr>
+                  <tr>
+                     <td> Street Name </td>
+                     <td> {{ property_info.streetName }} </td>
+                  </tr>
+                  <tr>
+                     <td> Category </td>
+                     <td> {{ property_info.category }} </td>
+                  </tr>
 
+                  <tr>
+                     <td> </td>
+                     <td> </td>
+                  </tr>
 
-            <!-- <tr>
-               <td> Info </td>
-            </tr>
-            <tr>
-               <td> Info </td>
-            </tr>
-            <tr>
-               <td> Info </td>
-            </tr>
-            <tr>
-               <td> Info </td>
-            </tr> -->
-         </tbody>
+                  <tr>
+                     <td> Equity </td>
+                     <td>
+                        {% if  property_info.beds  %}
+                           85%
+                        {% else %}
+                           <span class="row, equity_align">
+                           <div class="small-12 columns, equity_align">
+                           <div class="small-8 columns">
+                           <input type="text" name="" value="" placeholder="Enter equity percentage">
+                           </div>
+                           <div class="small-4 columns">
+                           <button type="submit" class="small button expanded">Save</button>
+                           </div>
+                           </div>
+                           </span>
+                        {% endif %}
+                     </td>
+                  </tr>
+                  <tr>
+                     <td> Case # </td>
+                     <td> {{ property_info.caseNum }} </td>
+                  </tr>
+                  <tr>
+                     <td> Category </td>
+                     <td> </td>
+                  </tr>
+                  <tr>
+                     <td> Zip Code </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Currently Occupied </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Last Sale Date </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Total Value </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Owners </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Age </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Gender </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Phone Number </td>
+                     <td> All numbers linked to the property </td>
+                  </tr>
+                  <tr>
+                     <td> Phone Type </td>
+                     <td>  </td>
+                  </tr>
+                  <tr>
+                     <td> Current Residents </td>
+                     <td> include name, age, gender </td>
+                  </tr>
+               </tbody>
 
-      </table>
+            </table>
+         </div>
+
+         <div class="small-3 columns">
+            <p> </p>
+         </div>
+
+      </div>
    </div>
 </div>
 

@@ -26,7 +26,6 @@
    <br>
 
    <div class="propertySearch">
-      <!-- <p text-align="center">Filter Results:</p> -->
       <div class="row">
          <p class="filterResults">Filter Results By The Following:</p>
          <div class="small-12 columns">
@@ -55,15 +54,14 @@
             </div>
 
             <div class="small-2 columns">
-               <label>Property Age
+               <label>Owner Age
                   <select>
                      <option> </option>
-                     <option value="10 Years Old"> 10 Years Old </option>
-                     <option value="10-20 Years Old"> 10-20 Years Old </option>
-                     <option value="20-30 Years Old"> 20-30 Years Old </option>
-                     <option value="30-40 Years Old"> 30-40 Years Old </option>
-                     <option value="40-50 Years Old"> 40-50 Years Old </option>
-                     <option value="50+ Years Old"> 50+ Years Old </option>
+                     <option value="30-39 Years Old"> 30-39 Years Old </option>
+                     <option value="40-49 Years Old"> 40-49 Years Old </option>
+                     <option value="50-59 Years Old"> 50-59 Years Old </option>
+                     <option value="60-69 Years Old"> 60-69 Years Old </option>
+                     <option value="70+ Years Old"> 70+ Years Old </option>
                   </select>
                </label>
             </div>
@@ -73,10 +71,10 @@
                   <select>
                      <option> </option>
                      <option value="Full Equity"> Full Equity </option>
-                     <option value="Within 10% "> Within 10% </option>
-                     <option value="10-15%"> 10-15% </option>
-                     <option value="15-20%"> 15-20% </option>
-                     <option value="Over 20%"> Over 20% </option>
+                     <option value="90-99%"> 90-99% </option>
+                     <option value="80-89%"> 80-89% </option>
+                     <option value="70-79%"> 70-79% </option>
+                     <option value="Less than 70%"> Less than 70% </option>
                   </select>
                </label>
             </div>
@@ -114,11 +112,9 @@
 
    <hr class="customColor">
 
-
-   <!-- {% if house_total %}
-      <p>house total</p>
-   {% endif %} -->
-
+   <div align="center" class="row, small-12 columns">
+      <button type="submit" class="button" >Update Database</button>
+   </div>
 
    <div class="tableDiv">
       <table class="hover">
@@ -132,8 +128,6 @@
          </thead>
 
          <tbody>
-            <!-- method=post action= url register  -->
-
             {% for object in house_list %}
             <tr>
                <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>

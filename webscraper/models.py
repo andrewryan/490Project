@@ -19,6 +19,7 @@ class House(models.Model):
     yearSold = models.CharField(max_length=20)
     purchasePrice = models.CharField(max_length=20)
     priceSqFt = models.CharField(max_length=20)
+    # equity = models.CharField(max_length=10)
 
     def __str__(self):
         return u'%s %s' % (self.streetNum, self.streetName)

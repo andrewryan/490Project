@@ -46,3 +46,12 @@ p.filterResults{
    text-align: center;
    font-weight: bold;
 }
+span.equity_align{
+  padding-top: 20rem;
+  /* padding-top: 15%; */
+}
+div.equity_align{
+  padding-top: 5%;
+  padding-bottom:1%;
+  /* padding-top: 15%; */
+}

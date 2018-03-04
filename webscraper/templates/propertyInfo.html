@@ -27,6 +27,7 @@
    <hr class="customColor">
 
    <div class="tableDiv">
+      <p>Property Info for {{ property_info.streetNum }} {{ property_info.streetName }}</p>
       <table class="hover">
          <thead>
             <tr>
@@ -36,6 +37,14 @@
 
          <tbody>
             <tr>
+               <td> {{ property_info.caseNum }} </td>
+               <td> {{ property_info.streetNum }} </td>
+               <td> {{ property_info.streetName }} </td>
+               <td> {{ property_info.category }} </td>
+            </tr>
+
+
+            <!-- <tr>
                <td> Info </td>
             </tr>
             <tr>
@@ -46,7 +55,7 @@
             </tr>
             <tr>
                <td> Info </td>
-            </tr>
+            </tr> -->
          </tbody>
 
       </table>

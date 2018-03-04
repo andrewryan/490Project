@@ -31,6 +31,7 @@ housingData = soup.find_all("td")
 from webscraper.models import *
 i = 0
 j = 0
+# numHouses = 0
 for string in housingData:
     if i > 22:
         # if string.text == "":
@@ -57,7 +58,11 @@ for string in housingData:
                                 category=house_category)
             addProperty.save()
             j = 0
+            # numHouses += 1
     i += 1
+# propertyTotal(house_total = numHouses).save()
+# create another model (propertyTotal) just to store the number of
+# houses in database
 
 ######### loop to delete entire contents of House model #########
 for x in House.objects.all().iterator(): x.delete()

@@ -132,10 +132,11 @@
          </thead>
 
          <tbody>
+            <!-- method=post action= url register  -->
 
             {% for object in house_list %}
             <tr>
-               <td> <a href="/propertyInfo/"> {{ object.caseNum }}</a> </td>
+               <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
                <td> {{ object.streetNum }} </td>
                <td> {{ object.streetName }} </td>
                <td> {{ object.category }} </td>

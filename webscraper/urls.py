@@ -3,6 +3,7 @@ from django.conf.urls import url
 from .views import *
 
 urlpatterns = [
-    url(r'^$', WSdatabase),
+    url(r'^$', database),
     url(r'^propertyInfo/(?P<caseNum>[\d]+\-?[\d]+)/$', propertyInfo),
+    url(r'^runscript', runscript),
 ]

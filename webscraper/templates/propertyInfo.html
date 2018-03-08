@@ -41,14 +41,17 @@
                      <td width="30%"> Case # </td>
                      <td> {{ property_info.caseNum }} </td>
                   </tr>
+
                   <tr>
                      <td> Street # </td>
                      <td> {{ property_info.streetNum }} </td>
                   </tr>
+
                   <tr>
                      <td> Street Name </td>
                      <td> {{ property_info.streetName }} </td>
                   </tr>
+
                   <tr>
                      <td> Category </td>
                      <td> {{ property_info.category }} </td>
@@ -62,7 +65,7 @@
                   <tr>
                      <td> Equity </td>
                      <td>
-                        {% if  property_info.beds  %}
+                        {% if property_info.category  %}
                            85%
                         {% else %}
                            <span class="row, equity_align">
@@ -78,54 +81,67 @@
                         {% endif %}
                      </td>
                   </tr>
+
                   <tr>
                      <td> Case # </td>
                      <td> {{ property_info.caseNum }} </td>
                   </tr>
+
                   <tr>
                      <td> Category </td>
                      <td> </td>
                   </tr>
+
                   <tr>
                      <td> Zip Code </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Currently Occupied </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Last Sale Date </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Total Value </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Owners </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Age </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Gender </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Phone Number </td>
                      <td> All numbers linked to the property </td>
                   </tr>
+
                   <tr>
                      <td> Phone Type </td>
                      <td>  </td>
                   </tr>
+
                   <tr>
                      <td> Current Residents </td>
                      <td> include name, age, gender </td>
                   </tr>
+                  
                </tbody>
 
             </table>

@@ -1,0 +1,36 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+<!-- Start Top Bar, sticky -->
+<div data-sticky-container>
+  <div class="top-bar row" data-sticky data-options="marginTop:0;" style="width:100%">
+    <div class="top-bar-left large-offset-2 large-6 columns">
+      <p align="center"> <a class="linkColor" href="/#/"> Lovin Real Estate </a> </p>
+    </div>
+    <div class="top-bar-right large-offset-3 large-1 columns end hide-for-small-only">
+      <h5 align="center" class="rightheadertext"> Code Violations Database </h5>
+    </div>
+  </div>
+</div>
+<!-- End Top Bar -->
+
+
+<div class="background">
+<!-- {% for object in test %}
+   <ul>
+      <li> object </li>
+   </ul>
+{% endfor %} -->
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% endblock script %}

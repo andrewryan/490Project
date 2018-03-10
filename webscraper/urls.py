@@ -5,5 +5,5 @@ from .views import *
 urlpatterns = [
     url(r'^$', database),
     url(r'^propertyInfo/(?P<caseNum>[\d]+\-?[\d]+)/$', propertyInfo),
-    url(r'^runscript', runscript),
+    url(r'^updateDatabase', updateDatabase),
 ]

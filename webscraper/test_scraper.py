@@ -1,7 +1,8 @@
-# import re
+######################### for county website #########################################
+
 import requests
 from bs4 import BeautifulSoup
-from .models import *
+from webscraper.models import *
 
 url = "http://www.citizenserve.com/Sacramento/CitizenController?Action=SacramentoOpenHousingCases&CtzPagePrefix=Sa&InstallationID=43"
 request = requests.get(url)
@@ -28,7 +29,7 @@ for string in soup.table.stripped_strings:
 ############################ THIS IS WORKING ################################
 #############################################################################
 housingData = soup.find_all("td")
-from webscraper.models import *
+
 i = 0
 j = 0
 # numHouses = 0
@@ -214,3 +215,28 @@ for item in housingData:
 
 for item in housingData:
     print(item.contents[1].text.replace("\n",""))
+
+################################################################################
+################################################################################
+
+
+
+if House.objects.filter(caseNum='16-02620').exists():
+    print("object exists")
+else:
+    print("does not exist")
+    break
+
+num_of_houses = House.objects.count()
+print(num_of_houses)
+
+from django.utils import timezone
+timezone.now()
+# returns:
+datetime (YYYY-MM-DD HH:MM:SS)
+
+# for just date
+myDate = timezone.now()
+myDate.date()
+# returns:
+datetime.date(2018, 3, 10)

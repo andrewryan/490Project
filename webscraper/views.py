@@ -1,15 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from .deleteDatabase import deleteDatabase
-from django.http import JsonResponse
+from .updateDatabase import updateDatabase
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 
 from .models import *
 
 
 def database(request):
     house_list = House.objects.all()
-    # num_of_houses = House.objects.count()
-    # num_of_houses = House.objects.all.count()
+    num_of_houses = House.objects.count()
+
     context = {
+        'num_of_houses':num_of_houses,
         'house_list':house_list,
         'title':"Code Violations",
         }
@@ -23,10 +25,10 @@ def propertyInfo(request, caseNum):
         }
     return render(request,'propertyInfo.html',context)
 
-def runscript(request):
-    test = deleteDatabase()
+def updateDatabase(request):
+    # updateDatabase()
+    # return HttpResponseRedirect('/')
     context = {
-        'test':test,
-        'title':"runscript",
+        'title':"Update Database",
         }
-    return render(request,'runscript.html',context)
+    return render(request,'updateDatabase.html',context)

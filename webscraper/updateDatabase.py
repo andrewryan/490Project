@@ -43,7 +43,6 @@ def updateDatabase():
     #                                 category=house_category,
     #                                 dateAdded=date_added,
     #                                 daysOld='0',)
-    #             # addProperty.save()
     #             j = 0
     #             # If the property exists then update the days_old field,
     #             # otherwise add the property to the database
@@ -55,14 +54,8 @@ def updateDatabase():
     #                 dateListed = datetime.strptime(dateAdded, '%Y-%m-%d').date()
     #                 days_old = todaysDate - dateListed
     #                 days_old = days_old.days
-    #                 updateAge = House( daysOld=days_old, )
-    #                 updateAge.save()
-    #                 # break
+    #                 cur_listing.daysOld = days_old
+    #                 cur_listing.save(update_fields=['daysOld'])
     #             else:
     #                 addProperty.save()
     #     i += 1
-
-
-# works when database is empty, saved empty fields and everything again
-# even if the object already existed when the database was not empty.
-# has to be the logic of the .exists() block

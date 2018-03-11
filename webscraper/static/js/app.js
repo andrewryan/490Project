@@ -6,7 +6,7 @@ document.getElementById("update").addEventListener("click", function(){
     document.getElementById("spinner").style.visibility = "visible";
 
     $.ajax({
-      url: '/updateDatabase/',
+      url: '/runUpdate/',
     });
     setTimeout(function(){ window.location.reload() },4000)
 

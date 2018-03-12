@@ -1,5 +1,6 @@
 {% extends "default.html" %}
 {% load static %}
+<!-- <img src="{% static "webscraper/static/images/logo.jpg" %}" alt="Lovin Real Estate logo"/> -->
 
 {% block title %}
 {{ title }}
@@ -8,6 +9,15 @@
 
 {% block content %}
 <!-- Start Top Bar, sticky -->
+<!-- <div data-sticky-container class="row, large-12 columns, top-bar">
+   <div class="large-6 columns  logo" style="background-image: url({% static 'images/image.jpeg' %})">
+      <br><br><br><br><br><br><br><br>
+   </div>
+   <div class="large-6 columns end hide-for-small-only ">
+      <h5 align="left"> Code Violations Database </h5>
+   </div>
+</div> -->
+
 <div data-sticky-container class="row, large-12 columns, top-bar">
    <div class="large-offset-2 large-6 columns top-bar-left">
       <p align="center"> <a class="linkColor" href="/#/"> Lovin Real Estate </a> </p>
@@ -31,7 +41,7 @@
 
             <div class="small-3 columns">
                <label>Category
-                  <select>
+                  <select id="category">
                      <option> </option>
                      <option value="Substandard Vacant Building"> Substandard Vacant Building </option>
                      <option value="Substandard Building"> Substandard Building </option>
@@ -54,7 +64,7 @@
 
             <div class="small-2 columns">
                <label>Owner Age
-                  <select>
+                  <select id="ownerAge">
                      <option> </option>
                      <option value="30-39 Years Old"> 30-39 Years Old </option>
                      <option value="40-49 Years Old"> 40-49 Years Old </option>
@@ -67,7 +77,7 @@
 
             <div class="small-2 columns">
                <label>Equity Value
-                  <select>
+                  <select id="equityValue">
                      <option> </option>
                      <option value="Full Equity"> Full Equity </option>
                      <option value="90-99%"> 90-99% </option>
@@ -80,7 +90,7 @@
 
             <div class="small-2 columns">
                <label>Currently Occupied
-                  <select>
+                  <select id="occupied">
                      <option> </option>
                      <option value="Yes"> Yes </option>
                      <option value="No"> No </option>
@@ -90,18 +100,18 @@
 
             <div class="small-2 columns">
                <label>Last Sale Date
-                  <select>
+                  <select id="lastSale">
                      <option> </option>
-                     <option value="starbuck"> Within 10 Years</option>
-                     <option value="hotdog"> 10-20 Years Ago </option>
-                     <option value="apollo"> 20-30 Years Ago </option>
-                     <option value="apollo"> More Than 30 Years Ago </option>
+                     <option value="Within 10 Years"> Within 10 Years </option>
+                     <option value="10-20 Years Ago"> 10-20 Years Ago </option>
+                     <option value="20-30 Years Ago"> 20-30 Years Ago </option>
+                     <option value="More Than 30 Years Ago"> More Than 30 Years Ago </option>
                   </select>
                </label>
             </div>
 
             <div class="small-1 columns" style="padding-top: 23px">
-               <button class="button" type="submit">Search</button>
+               <button id="search" class="button" type="submit">Search</button>
             </div>
 
          </div>

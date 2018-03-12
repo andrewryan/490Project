@@ -22,8 +22,8 @@
 
 <div class="background">
    <br><br>
-   <h4 align="center">Property Info for {{ property_info.streetNum }}
-   {{ property_info.streetName }}</h4>
+   <h3 align="center">Property Info for {{ property_info.streetNum }}
+   {{ property_info.streetName }}</h3>
 
    <hr class="customColor">
 
@@ -36,30 +36,6 @@
          <div class="tableDiv, small-6 columns">
             <table class="hover">
                <tbody>
-                  <tr>
-                     <td width="30%"> Case # </td>
-                     <td> {{ property_info.caseNum }} </td>
-                  </tr>
-
-                  <tr>
-                     <td> Street # </td>
-                     <td> {{ property_info.streetNum }} </td>
-                  </tr>
-
-                  <tr>
-                     <td> Street Name </td>
-                     <td> {{ property_info.streetName }} </td>
-                  </tr>
-
-                  <tr>
-                     <td> Category </td>
-                     <td> {{ property_info.category }} </td>
-                  </tr>
-
-                  <tr>
-                     <td> </td>
-                     <td> </td>
-                  </tr>
 
                   <tr>
                      <td> Equity </td>
@@ -88,7 +64,7 @@
 
                   <tr>
                      <td> Category </td>
-                     <td> </td>
+                     <td> {{ property_info.category }} </td>
                   </tr>
 
                   <tr>

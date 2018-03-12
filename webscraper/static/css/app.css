@@ -53,3 +53,9 @@ div.spin{
 div.updateDiv{
    height: 40px;
 }
+div.logo{
+   /* height:600px; */
+   /* width:600px; */
+   background-repeat:no-repeat;
+   background-size: 90% 50%;
+}

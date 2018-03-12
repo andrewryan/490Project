@@ -8,7 +8,7 @@ document.getElementById("update").addEventListener("click", function(){
     $.ajax({
       url: '/runUpdate/',
     });
-    setTimeout(function(){ window.location.reload() },6000)
+    setTimeout(function(){ window.location.reload() },10000)
 
 });
 

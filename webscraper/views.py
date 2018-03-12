@@ -26,7 +26,7 @@ def propertyInfo(request, caseNum):
     return render(request,'propertyInfo.html',context)
 
 def runUpdate(request):
-    # updateDatabase()
+    updateDatabase()
     # return HttpResponseRedirect('/')
     context = {
         'title':"Update Database",

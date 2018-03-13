@@ -1,9 +1,10 @@
 /* Start top bar CSS */
 div.top-bar{
-  padding-top: 1%;
   background-color: white;
-  height: 90px;
-  border: 2px solid #CACACA;
+  height: 120px;
+  border-right: 2px solid #CACACA;
+  border-left: 2px solid #CACACA;
+  border-top: 2px solid #CACACA;
 }
 div.top-bar-left{
   font-style: oblique;
@@ -11,7 +12,8 @@ div.top-bar-left{
   font-size: 40px;
 }
 div.top-bar-right{
-  padding-top: 1.5%;
+  padding-top: 3%;
+  padding-left:10%
 }
 a.linkColor{
   color: #000000;
@@ -54,8 +56,6 @@ div.updateDiv{
    height: 40px;
 }
 div.logo{
-   /* height:600px; */
-   /* width:600px; */
    background-repeat:no-repeat;
-   background-size: 50% 50%;
+   background-size: 55% 70%;
 }

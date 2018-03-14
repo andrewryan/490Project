@@ -261,24 +261,14 @@ print(numDays.days)
 # Testing urls
 house_streetNum = "123"
 house_streetName = "Main St"
-location = house_streetNum + house_streetName + "," + "Sacramento" + "," + "CA"
+location = house_streetNum + " " + house_streetName + ", " + "Sacramento" + "," + " CA"
 location = location.replace(",","%2C")
 location = location.replace(" ","+")
 print(location)
 
-from urllib.parse import urlparse
-location = urlparse(location)
-print(location)
-
-# import urllib2
-location = urllib.parse.urlencode({})
-
-from urllib.parse import urlencode
-final_location = urlencode(location)
-print(final_location)
-
 123+Main+St%2C+Sacramento%2C+CA
 
+3341+10th+Ave%2C+Sacramento%2C+CA
 3341+10th+Ave%2C+Sacramento%2C+CA+95817
 3341%2010th%20Ave%2C%20Sacramento%2C%20CA%2095817
 "lat" : 38.542917,
@@ -286,5 +276,30 @@ print(final_location)
 38.542917,-121.470322
 
 https://maps.googleapis.com/maps/api/geocode/json?address=3341+10th+Ave%2C+Sacramento%2C+CA+95817&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78
+https://maps.googleapis.com/maps/api/geocode/json?address=3341+10th+Ave%2C+Sacramento%2C+CA&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78
 
 https://www.google.com/maps/@?api=1&map_action=pano&3341%2010th%20Ave%2C%20Sacramento%2C%20CA%2095817
+
+location = house_streetNum + " " + house_streetName + ", " + "Sacramento" + "," + " CA"
+location = location.replace(",","%2C")
+location = location.replace(" ","+")
+geocodeLookup(location)
+
+
+import urllib.request
+import json
+
+def geocodeLookup(location):
+url = "https://maps.googleapis.com/maps/api/geocode/json?address="
+apiKey = "&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78"
+finalURL = url + location + apiKey
+request = requests.get(finalURL)
+json_obj = request.json()
+latitude = json_obj["results"][0]["geometry"]["location"]["lat"]
+longitude = json_obj["results"][0]["geometry"]["location"]["lng"]
+geoLookup = str(latitude) + "," + str(longitude)
+return geoLookup
+
+    print(geoLookup)
+    print(latitude)
+    print(longitude)

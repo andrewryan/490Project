@@ -19,7 +19,11 @@ def database(request):
 
 def propertyInfo(request, caseNum):
     property_info = get_object_or_404(House, caseNum=caseNum)
+    cur_property = House.objects.get(caseNum=caseNum)
+    street_view_url = "https://www.google.com/maps/embed/v1/streetview?&location=" + cur_property.geoLookup + "&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78"
+
     context = {
+        'street_view_url':street_view_url,
         'property_info':property_info,
         'title':"Property Info",
         }

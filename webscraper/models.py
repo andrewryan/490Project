@@ -20,8 +20,10 @@ class House(models.Model):
     phoneNumber = models.CharField(max_length=40)
     phoneType = models.CharField(max_length=40)
     currentResidents = models.CharField(max_length=200)
+    ########### Other property info ##############
     daysOld = models.CharField(max_length=10)
     dateAdded = models.CharField(max_length=20)
+    geoLookup = models.CharField(max_length=30)
 
 
     def __str__(self):

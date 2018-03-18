@@ -31,3 +31,47 @@ document.getElementById("search").addEventListener("click", function(){
     // setTimeout(function(){ window.location.reload() },6000)
 
 });
+
+
+// document.getElementById("update").addEventListener("click", function(){
+//     console.log("UPDATE button worked");
+//     // document.getElementById("update").style.display = "none";
+//     // document.getElementById("spinner").style.visibility = "visible";
+//
+//     $.ajax({
+//         url: '/runUpdate/',
+//         data: {
+//           'data': data
+//         },
+//         dataType: 'json',
+//        success: function (data) {
+//                remove spinner
+//              reload page, iterate through returned "data" and pass it to html
+//           // if (data.is_taken) {
+//             // alert("A user with this username already exists.");
+//           }
+//         }
+//       });
+//
+//     setTimeout(function(){ window.location.reload() },10000)
+//
+// });
+
+// $(document).ajaxStart(function(){
+//        timer = setTimeout(function(){
+//           $(".elmt").addClass("loading");
+//        },1500);
+//     });
+//
+//     $(document).ajaxStop(function(){
+//       clearTimeout(timer);
+//       $(".elmt").removeClass("loading");
+//     });
+
+// $(document).ajaxStop(function () {
+//         $('#loading').hide();
+//     });
+//
+//     $(document).ajaxStart(function () {
+//         $('#loading').show();
+//     });

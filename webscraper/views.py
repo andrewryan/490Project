@@ -20,7 +20,10 @@ def database(request):
 def propertyInfo(request, caseNum):
     property_info = get_object_or_404(House, caseNum=caseNum)
     cur_property = House.objects.get(caseNum=caseNum)
-    street_view_url = "https://www.google.com/maps/embed/v1/streetview?&location=" + cur_property.geoLookup + "&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78"
+    if cur_property.geoLookup != "":
+        street_view_url = "https://www.google.com/maps/embed/v1/streetview?&location=" + cur_property.geoLookup + "&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78"
+    else:
+        street_view_url = ""
 
     context = {
         'street_view_url':street_view_url,
@@ -30,9 +33,10 @@ def propertyInfo(request, caseNum):
     return render(request,'propertyInfo.html',context)
 
 def runUpdate(request):
-    # updateDatabase()
+    updateDatabase()
+    # data = updateDatabase()
     # return HttpResponseRedirect('/')
     context = {
         'title':"Update Database",
         }
-    return render(request,'updateDatabase.html',context)
+    return render(request,'runUpdate.html',context)

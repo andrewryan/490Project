@@ -24,6 +24,8 @@ class House(models.Model):
     daysOld = models.CharField(max_length=10)
     dateAdded = models.CharField(max_length=20)
     geoLookup = models.CharField(max_length=30)
+    latitude = models.CharField(max_length=30)
+    longitude = models.CharField(max_length=30)
 
 
     def __str__(self):

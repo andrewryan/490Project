@@ -256,29 +256,24 @@ numDays = todaysDate - dateAdded
 print(numDays.days)
 
 
+######################### Testing geocode api #################################
 
+import json, requests
+from webscraper.models import *
 
-# Testing urls
-house_streetNum = "123"
-house_streetName = "Main St"
+3632    52ND ST AKA 3640 52ND ST.
+5011	ALCOTT DR
+7504	29TH ST
+2961	29TH AV
+house_streetNum = "3632"
+house_streetName = "52ND ST AKA 3640 52ND ST."
+
+house_streetNum = "3341"
+house_streetName = "10th Ave"
 location = house_streetNum + " " + house_streetName + ", " + "Sacramento" + "," + " CA"
 location = location.replace(",","%2C")
 location = location.replace(" ","+")
 print(location)
-
-123+Main+St%2C+Sacramento%2C+CA
-
-3341+10th+Ave%2C+Sacramento%2C+CA
-3341+10th+Ave%2C+Sacramento%2C+CA+95817
-3341%2010th%20Ave%2C%20Sacramento%2C%20CA%2095817
-"lat" : 38.542917,
-"lng" : -121.470322
-38.542917,-121.470322
-
-https://maps.googleapis.com/maps/api/geocode/json?address=3341+10th+Ave%2C+Sacramento%2C+CA+95817&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78
-https://maps.googleapis.com/maps/api/geocode/json?address=3341+10th+Ave%2C+Sacramento%2C+CA&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78
-
-https://www.google.com/maps/@?api=1&map_action=pano&3341%2010th%20Ave%2C%20Sacramento%2C%20CA%2095817
 
 location = house_streetNum + " " + house_streetName + ", " + "Sacramento" + "," + " CA"
 location = location.replace(",","%2C")
@@ -286,20 +281,31 @@ location = location.replace(" ","+")
 geocodeLookup(location)
 
 
-import urllib.request
-import json
 
-def geocodeLookup(location):
+# def geocodeLookup(location):
 url = "https://maps.googleapis.com/maps/api/geocode/json?address="
 apiKey = "&key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78"
 finalURL = url + location + apiKey
 request = requests.get(finalURL)
-json_obj = request.json()
-latitude = json_obj["results"][0]["geometry"]["location"]["lat"]
-longitude = json_obj["results"][0]["geometry"]["location"]["lng"]
-geoLookup = str(latitude) + "," + str(longitude)
-return geoLookup
-
+if request.status_code == 200:
+    # Extracting data in json format
+    json_obj = request.json()
+    # Testing for valid address
+    # if json_obj.get("status", "ZERO_RESULTS"):
+    #     print("ZERO RESULTS")
+    # Testing for results returned with populated data
+    if json_obj.get("results", []):
+        # Extracting latitude and longitude
+        # of the first matching location
+        latitude = json_obj['results'][0]['geometry']['location']['lat']
+        longitude = json_obj['results'][0]['geometry']['location']['lng']
+    # Testing if latitude and longitude existed
+    if 'latitude' in locals() and 'longitude' in locals():
+        geoLookup = str(latitude) + "," + str(longitude)
+        # return(geoLookup)
+        # print(geoLookup)
+    else:
+        # Either latitude or longitude were missing from response
+        geoLookup = "missing either latitude or longitude"
     print(geoLookup)
-    print(latitude)
-    print(longitude)
+        # return("")

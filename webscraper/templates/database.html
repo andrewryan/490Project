@@ -31,81 +31,89 @@
       <div class="row">
          <h6 align="center"> <b>Filter Results By The Following:</b> </h6>
          <div class="small-12 columns">
+            <!-- <form method='GET' action=''>
+               <input type='text' name='q' placeholder='Search listings'/>
+               <input type='submit' value='Search'/>
+            </form> -->
 
             <div class="small-3 columns">
-               <label>Category
-                  <select id="category">
-                     <option> </option>
-                     <option value="Substandard Vacant Building"> Substandard Vacant Building </option>
-                     <option value="Substandard Building"> Substandard Building </option>
-                     <option value="Complaint"> Complaint </option>
-                     <option value="Single Room Occupancy"> SRO - Single Room Occupancy </option>
-                     <option value="Vacant Building"> Vacant Building </option>
-                     <option value="City Attorney"> City Attorney </option>
-                     <option value="Dangerous Building"> Dangerous Building </option>
-                     <option value="Stagnant Water"> Stagnant Water </option>
-                     <option value="Fire Reports"> Fire Reports </option>
-                     <option value="Penalty Waiver Agreement"> Penalty Waiver Agreement </option>
-                     <option value="HSG Boarded"> HSG Boarded </option>
-                     <option value="Emergency On Call"> Emergency On Call </option>
-                     <option value="Marijuana"> Marijuana </option>
-                     <option value="Police Reports"> Police Reports </option>
-                     <option value="Junk & Debris"> Junk & Debris </option>
-                  </select>
-               </label>
-            </div>
+               <form method='GET' action=''>
 
-            <div class="small-2 columns">
-               <label>Owner Age
-                  <select id="ownerAge">
-                     <option> </option>
-                     <option value="30-39 Years Old"> 30-39 Years Old </option>
-                     <option value="40-49 Years Old"> 40-49 Years Old </option>
-                     <option value="50-59 Years Old"> 50-59 Years Old </option>
-                     <option value="60-69 Years Old"> 60-69 Years Old </option>
-                     <option value="70+ Years Old"> 70+ Years Old </option>
-                  </select>
-               </label>
-            </div>
+                  <label>Category
+                     <select name='category'>
+                        <option> </option>
+                        <option value="Substandard Vacant Building"> Substandard Vacant Building </option>
+                        <option value="Substandard Building"> Substandard Building </option>
+                        <option value="Complaint"> Complaint </option>
+                        <option value="Single Room Occupancy"> SRO - Single Room Occupancy </option>
+                        <option value="Vacant Building"> Vacant Building </option>
+                        <option value="City Attorney"> City Attorney </option>
+                        <option value="Dangerous Building"> Dangerous Building </option>
+                        <option value="Stagnant Water"> Stagnant Water </option>
+                        <option value="Fire Reports"> Fire Reports </option>
+                        <option value="Penalty Waiver Agreement"> Penalty Waiver Agreement </option>
+                        <option value="HSG Boarded"> HSG Boarded </option>
+                        <option value="Emergency On Call"> Emergency On Call </option>
+                        <option value="Marijuana"> Marijuana </option>
+                        <option value="Police Reports"> Police Reports </option>
+                        <option value="Junk & Debris"> Junk & Debris </option>
+                     </select>
+                  </label>
+               </div>
 
-            <div class="small-2 columns">
-               <label>Equity Value
-                  <select id="equityValue">
-                     <option> </option>
-                     <option value="Full Equity"> Full Equity </option>
-                     <option value="90-99%"> 90-99% </option>
-                     <option value="80-89%"> 80-89% </option>
-                     <option value="70-79%"> 70-79% </option>
-                     <option value="Less than 70%"> Less than 70% </option>
-                  </select>
-               </label>
-            </div>
+               <div class="small-2 columns">
+                  <label>Owner Age
+                     <select name='ownerAge'>
+                        <option> </option>
+                        <option value="30-39 Years Old"> 30-39 Years Old </option>
+                        <option value="40-49 Years Old"> 40-49 Years Old </option>
+                        <option value="50-59 Years Old"> 50-59 Years Old </option>
+                        <option value="60-69 Years Old"> 60-69 Years Old </option>
+                        <option value="70+ Years Old"> 70+ Years Old </option>
+                     </select>
+                  </label>
+               </div>
 
-            <div class="small-2 columns">
-               <label>Currently Occupied
-                  <select id="occupied">
-                     <option> </option>
-                     <option value="Yes"> Yes </option>
-                     <option value="No"> No </option>
-                  </select>
-               </label>
-            </div>
+               <div class="small-2 columns">
+                  <label>Equity Value
+                     <select name='equity'>
+                        <option> </option>
+                        <option value="Full Equity"> Full Equity </option>
+                        <option value="90-99%"> 90-99% </option>
+                        <option value="80-89%"> 80-89% </option>
+                        <option value="70-79%"> 70-79% </option>
+                        <option value="Less than 70%"> Less than 70% </option>
+                     </select>
+                  </label>
+               </div>
 
-            <div class="small-2 columns">
-               <label>Last Sale Date
-                  <select id="lastSale">
-                     <option> </option>
-                     <option value="Within 10 Years"> Within 10 Years </option>
-                     <option value="10-20 Years Ago"> 10-20 Years Ago </option>
-                     <option value="20-30 Years Ago"> 20-30 Years Ago </option>
-                     <option value="More Than 30 Years Ago"> More Than 30 Years Ago </option>
-                  </select>
-               </label>
-            </div>
+               <div class="small-2 columns">
+                  <label>Currently Occupied
+                     <select name='occupied'>
+                        <option> </option>
+                        <option value="Yes"> Yes </option>
+                        <option value="No"> No </option>
+                     </select>
+                  </label>
+               </div>
 
-            <div class="small-1 columns" style="padding-top: 23px">
-               <button id="search" class="button" type="submit">Search</button>
-            </div>
+               <div class="small-2 columns">
+                  <label>Last Sale Date
+                     <select name='lastSale'>
+                        <option> </option>
+                        <option value="Within 10 Years"> Within 10 Years </option>
+                        <option value="10-20 Years Ago"> 10-20 Years Ago </option>
+                        <option value="20-30 Years Ago"> 20-30 Years Ago </option>
+                        <option value="More Than 30 Years Ago"> More Than 30 Years Ago </option>
+                     </select>
+                  </label>
+               </div>
+
+               <div class="small-1 columns" style="padding-top: 23px">
+                  <button id="search" class="button" type="submit">Search</button>
+               </div>
+
+            </form>
 
          </div>
       </div>
@@ -116,7 +124,7 @@
 
    <div class="updateDiv" class="row, small-12 columns">
       <div align="right" class="small-6 columns">
-         <h5><b> {{ num_of_houses }} Current Listings </b></h5>
+         <h5><b> {{ num_of_houses }} Listings </b></h5>
       </div>
 
       <div align="right" class="small-2 columns">

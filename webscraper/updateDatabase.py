@@ -5,11 +5,9 @@ from django.utils import timezone
 from datetime import datetime
 
 from webscraper.models import *
-# from .views import *
 
 def updateDatabase():
-    # return "testing"
-    url = "http://www.citizenserve.com/Sacramento/CitizenController?Action=SacramentoOpenHousingCases&CtzPagePrefix=Sa&InstallationID=43"
+    # url = "http://www.citizenserve.com/Sacramento/CitizenController?Action=SacramentoOpenHousingCases&CtzPagePrefix=Sa&InstallationID=43"
     request = requests.get(url)
     soup = BeautifulSoup(request.content, "html.parser")
     housingData = soup.find_all("td")

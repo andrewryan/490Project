@@ -12,17 +12,17 @@ def database(request):
     # num_of_houses = House.objects.count()
     # queryset_list = House.objects.all()
     category_query = request.GET.get("category")
-    ownerAge_query = request.GET.get("ownerAge")
-    equity_query = request.GET.get("equity")
-    occupied_query = request.GET.get("occupied")
-    lastSale_query = request.GET.get("lastSale")
+    condition_query = request.GET.get("condition")
+    numBedrooms_query = request.GET.get("numBedrooms")
+    yearBuilt_query = request.GET.get("yearBuilt")
+    propertyType_query = request.GET.get("propertyType")
     if category_query:
         house_list = house_list.filter(
             Q(category__icontains=category_query),
-            # Q(ownerAge__icontains=query),
-            # Q(equity__icontains=equity_query),
-            # Q(occupied__icontains=query),
-            # Q(lastSale__icontains=query)
+            # Q(buildingConditionScore__icontains=condition_query),
+            # Q(numBedrooms__icontains=numBedrooms_query),
+            # Q(yearBuilt__icontains=yearBuilt_query),
+            # Q(propertyType__icontains=propertyType_query)
             )
 
     num_of_houses = house_list.count()

@@ -265,8 +265,8 @@ from webscraper.models import *
 5011	ALCOTT DR
 7504	29TH ST
 2961	29TH AV
-house_streetNum = "3632"
-house_streetName = "52ND ST AKA 3640 52ND ST."
+house_streetNum = "5011"
+house_streetName = "ALCOTT DR"
 
 house_streetNum = "3341"
 house_streetName = "10th Ave"
@@ -299,6 +299,11 @@ if request.status_code == 200:
         # of the first matching location
         latitude = json_obj['results'][0]['geometry']['location']['lat']
         longitude = json_obj['results'][0]['geometry']['location']['lng']
+        # Returning zip code to use in property details function
+        addressComponent = json_obj['results'][0]['address_components']
+        for x in addressComponent:
+            if x['types'] == ['postal_code']:
+                zipCode = x['long_name']
     # Testing if latitude and longitude existed
     if 'latitude' in locals() and 'longitude' in locals():
         geoLookup = str(latitude) + "," + str(longitude)
@@ -307,5 +312,28 @@ if request.status_code == 200:
     else:
         # Either latitude or longitude were missing from response
         geoLookup = "missing either latitude or longitude"
-    print(geoLookup)
-        # return("")
+    if 'zipCode' not in locals():
+        zipCode = ""
+    # print('geoLookup = ' + geoLookup + ' zipCode = ' + zipCode)
+    print(geoLookup, zipCode)
+    # geo_results = geoLookup, zipCode
+
+########################### House Canary #####################################
+import json, requests
+from webscraper.models import *
+
+def propertyDetails(location, zipCode):
+url = 'https://api.housecanary.com/v2/property/details'
+house_streetNum = "3341"
+house_streetName = "10th Ave"
+zipCode = "95817"
+address = house_streetNum + " " + house_streetName
+params = {'address': address ,'zipcode': zipCode}
+response = requests.get(url, params=params, auth=('BJ0FREFH19V6WSLM6QPW', 'CIPKYkzl4qjQVzFIlUQGl411w4H6ZPsu'))
+
+
+
+addressComponent = json_obj['results'][0]['address_components']
+for x in addressComponent:
+    if x['types'] == ['postal_code']:
+        print(x['long_name'])

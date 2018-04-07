@@ -23,7 +23,6 @@
 <!-- End Top Bar -->
 
 
-<!-- Start table div -->
 <div class="background">
    <br>
 
@@ -62,49 +61,54 @@
                </div>
 
                <div class="small-2 columns">
-                  <label>Owner Age
-                     <select name='ownerAge'>
+                  <label>Condition Rating
+                     <select name='condition'>
                         <option> </option>
-                        <option value="30-39 Years Old"> 30-39 Years Old </option>
-                        <option value="40-49 Years Old"> 40-49 Years Old </option>
-                        <option value="50-59 Years Old"> 50-59 Years Old </option>
-                        <option value="60-69 Years Old"> 60-69 Years Old </option>
-                        <option value="70+ Years Old"> 70+ Years Old </option>
+                        <option value="Excellent"> Excellent </option>
+                        <option value="Good"> Good </option>
+                        <option value="Fair"> Fair </option>
+                        <option value="Poor"> Poor </option>
+                        <option value="Unsound"> Unsound </option>
                      </select>
                   </label>
                </div>
 
                <div class="small-2 columns">
-                  <label>Equity Value
-                     <select name='equity'>
+                  <label>Number Of Bedrooms
+                     <select name='numBedrooms'>
                         <option> </option>
-                        <option value="Full Equity"> Full Equity </option>
-                        <option value="90-99%"> 90-99% </option>
-                        <option value="80-89%"> 80-89% </option>
-                        <option value="70-79%"> 70-79% </option>
-                        <option value="Less than 70%"> Less than 70% </option>
+                        <option value="1-2"> 1-2 </option>
+                        <option value="2-3"> 2-3 </option>
+                        <option value="3-4"> 3-4 </option>
+                        <option value="4-5"> 4-5 </option>
+                        <option value="More than 5"> More than 5 </option>
                      </select>
                   </label>
                </div>
 
                <div class="small-2 columns">
-                  <label>Currently Occupied
-                     <select name='occupied'>
+                  <label>Year Built
+                     <select name='yearBuilt'>
                         <option> </option>
-                        <option value="Yes"> Yes </option>
-                        <option value="No"> No </option>
+                        <option value="Before 1950"> Before 1950 </option>
+                        <option value="1950-1970"> 1950-1970 </option>
+                        <option value="1971-1990"> 1971-1990 </option>
+                        <option value="1991-2010"> 1991-2010 </option>
+                        <option value="Newer than 2011"> Newer than 2011 </option>
                      </select>
                   </label>
                </div>
 
                <div class="small-2 columns">
-                  <label>Last Sale Date
-                     <select name='lastSale'>
+                  <label>Property Type
+                     <select name='propertyType'>
                         <option> </option>
-                        <option value="Within 10 Years"> Within 10 Years </option>
-                        <option value="10-20 Years Ago"> 10-20 Years Ago </option>
-                        <option value="20-30 Years Ago"> 20-30 Years Ago </option>
-                        <option value="More Than 30 Years Ago"> More Than 30 Years Ago </option>
+                        <option value="Single Family Residential"> Single Family Residential </option>
+                        <option value="Townhouse"> Townhouse </option>
+                        <option value="Condominium"> Condominium </option>
+                        <option value="Manufactured/Mobile Home"> Manufactured/Mobile Home </option>
+                        <option value="Multi-Family"> Multi-Family </option>
+                        <option value="Other"> Other </option>
                      </select>
                   </label>
                </div>
@@ -120,22 +124,34 @@
 
    </div>
 
-   <hr class="customColor">
-
+   <!-- Start update database button -->
    <div class="updateDiv" class="row, small-12 columns">
-      <div align="right" class="small-6 columns">
-         <h5><b> {{ num_of_houses }} Listings </b></h5>
-      </div>
-
-      <div align="right" class="small-2 columns">
+      <div align="right" style="padding-right:2.8%" class="small-7 columns">
          <button id="update" class="button" type="submit">Update Database</button>
       </div>
 
-      <div align="left" class="small-4 columns">
+      <div align="left" class="small-5 columns">
          <div id="spinner" class="spin" style="background-image: url({% static 'images/ajax-loader.gif' %})"> <br> </div>
       </div>
    </div>
+   <!-- End update database button -->
 
+
+   <hr class="customColor">
+
+   <!-- Start show all database button -->
+   <div class="updateDiv" class="row, small-12 columns">
+      <div align="right" class="small-6 columns">
+         <h5><b> {{ num_of_houses }} listings in current search </b></h5>
+      </div>
+
+      <div class="small-6 columns">
+         <button id="showAll" class="button" type="submit">Show all listings </button>
+      </div>
+   </div>
+   <!-- End show all database button -->
+
+   <!-- Start property table -->
    <div class="tableDiv">
       <table class="hover">
          <thead>
@@ -162,8 +178,8 @@
          </tbody>
       </table>
    </div>
+   <!-- End property table -->
 </div>
-<!-- End table div -->
 
 {% endblock %}
 

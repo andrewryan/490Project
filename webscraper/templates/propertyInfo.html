@@ -37,11 +37,11 @@
          </div>
 
          <div class="tableDiv, small-6 columns">
+            <h4 align="center">Quick Facts</h4>
             <table class="hover">
                <tbody>
-
                   <tr>
-                     <td> Equity </td>
+                     <td width="180"> Equity </td>
                      <td>
                         {% if property_info.category  %}
                            85%
@@ -61,6 +61,31 @@
                   </tr>
 
                   <tr>
+                     <td> Total Assessed Value </td>
+                     <td> {{ property_info.totalAssessedValue }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Assessment Year </td>
+                     <td> {{ property_info.assessmentYear }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Year Built </td>
+                     <td> {{ property_info.yearBuilt }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Date Added to DB </td>
+                     <td> {{ property_info.dateAdded }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Days Old </td>
+                     <td> {{ property_info.daysOld }} </td>
+                  </tr>
+
+                  <tr>
                      <td> Case # </td>
                      <td> {{ property_info.caseNum }} </td>
                   </tr>
@@ -71,63 +96,103 @@
                   </tr>
 
                   <tr>
-                     <td> Days Old </td>
-                     <td> {{ property_info.daysOld }} </td>
-                  </tr>
-
-                  <tr>
                      <td> Zip Code </td>
                      <td> {{ property_info.zipCode }} </td>
                   </tr>
+               </tbody>
+            </table>
 
+            <h4 align="center">Property Details</h4>
+            <table class="hover">
+               <tbody>
                   <tr>
-                     <td> Currently Occupied </td>
-                     <td>  </td>
+                     <td width="180"> Square Footage </td>
+                     <td> {{ property_info.squareFootage }} </td>
                   </tr>
 
                   <tr>
-                     <td> Last Sale Date </td>
-                     <td>  </td>
+                     <td> Condition Score </td>
+                     <td> {{ property_info.buildingConditionScore }} </td>
                   </tr>
 
                   <tr>
-                     <td> Total Value </td>
-                     <td>  </td>
+                     <td> Exterior Walls </td>
+                     <td> {{ property_info.exteriorWalls }} </td>
                   </tr>
 
                   <tr>
-                     <td> Owners </td>
-                     <td>  </td>
+                     <td> Fireplace </td>
+                     <td> {{ property_info.fireplace }} </td>
                   </tr>
 
                   <tr>
-                     <td> Age </td>
-                     <td>  </td>
+                     <td> Garage Spaces </td>
+                     <td> {{ property_info.garageCount }} </td>
                   </tr>
 
                   <tr>
-                     <td> Gender </td>
-                     <td>  </td>
+                     <td> Number of Stories </td>
+                     <td> {{ property_info.numStories }} </td>
                   </tr>
 
                   <tr>
-                     <td> Phone Number </td>
-                     <td> All numbers linked to the property </td>
+                     <td> Number of Bedrooms </td>
+                     <td> {{ property_info.numBedrooms }} </td>
                   </tr>
 
                   <tr>
-                     <td> Phone Type </td>
-                     <td>  </td>
+                     <td> Number of Baths </td>
+                     <td> {{ property_info.numBaths }} </td>
                   </tr>
 
                   <tr>
-                     <td> Current Residents </td>
-                     <td> include name, age, gender </td>
+                     <td> Pool </td>
+                     <td> {{ property_info.pool }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Property Type </td>
+                     <td> {{ property_info.propertyType }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Roofing Material </td>
+                     <td> {{ property_info.roofCover }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Property Acreage </td>
+                     <td> {{ property_info.propertyAcreage }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Style</td>
+                     <td> {{ property_info.style }} </td>
                   </tr>
 
                </tbody>
-
             </table>
+
+            <h4 align="center">Tax Details</h4>
+            <table class="hover">
+               <tbody>
+                  <tr>
+                     <td width="180"> Tax Amount </td>
+                     <td> {{ property_info.taxAmount }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> Tax Year </td>
+                     <td> {{ property_info.taxYear }} </td>
+                  </tr>
+
+                  <tr>
+                     <td> APN </td>
+                     <td> {{ property_info.apn }} </td>
+                  </tr>
+               </tbody>
+            </table>
+
          </div>
 
 

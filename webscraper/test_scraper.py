@@ -324,14 +324,116 @@ from webscraper.models import *
 
 def propertyDetails(location, zipCode):
 url = 'https://api.housecanary.com/v2/property/details'
-house_streetNum = "3341"
-house_streetName = "10th Ave"
-zipCode = "95817"
+house_streetNum = "3737"
+house_streetName = "32ND ST"
+zipCode = "95820"
+caseNum = "15-019816"
 address = house_streetNum + " " + house_streetName
 params = {'address': address ,'zipcode': zipCode}
 response = requests.get(url, params=params, auth=('BJ0FREFH19V6WSLM6QPW', 'CIPKYkzl4qjQVzFIlUQGl411w4H6ZPsu'))
+json_obj = response.json()
+
+squareFootage = json_obj[0]['property/details']['result']['property']['building_area_sq_ft']
+buildingConditionScore = json_obj[0]['property/details']['result']['property']['building_condition_score']
+exteriorWalls = json_obj[0]['property/details']['result']['property']['exterior_walls']
+fireplace = json_obj[0]['property/details']['result']['property']['fireplace']
+garageCount = json_obj[0]['property/details']['result']['property']['garage_parking_of_cars']
+numStories = json_obj[0]['property/details']['result']['property']['no_of_stories']
+numBedrooms = json_obj[0]['property/details']['result']['property']['number_of_bedrooms']
+pool = json_obj[0]['property/details']['result']['property']['pool']
+propertyType = json_obj[0]['property/details']['result']['property']['property_type']
+roofCover = json_obj[0]['property/details']['result']['property']['roof_cover']
+propertyAcreage = json_obj[0]['property/details']['result']['property']['site_area_acres']
+style = json_obj[0]['property/details']['result']['property']['style']
+numBaths = json_obj[0]['property/details']['result']['property']['total_bath_count']
+yearBuilt = json_obj[0]['property/details']['result']['property']['year_built']
+# Property tax info
+apn = json_obj[0]['property/details']['result']['assessment']['apn']
+assessmentYear = json_obj[0]['property/details']['result']['assessment']['assessment_year']
+taxYear = json_obj[0]['property/details']['result']['assessment']['tax_year']
+totalAssessedValue = json_obj[0]['property/details']['result']['assessment']['total_assessed_value']
+taxAmount = json_obj[0]['property/details']['result']['assessment']['tax_amount']
+# Updating model fields before returning function
+cur_property = House.objects.get(caseNum=caseNum)
+cur_property.squareFootage = squareFootage
+cur_property.save(update_fields=['squareFootage'])
+
+cur_property.buildingConditionScore = buildingConditionScore
+cur_property.save(update_fields=['buildingConditionScore'])
+
+cur_property.exteriorWalls = exteriorWalls
+cur_property.save(update_fields=['exteriorWalls'])
+
+cur_property.fireplace = fireplace
+cur_property.save(update_fields=['fireplace'])
+
+cur_property.garageCount = garageCount
+cur_property.save(update_fields=['garageCount'])
+
+cur_property.numStories = numStories
+cur_property.save(update_fields=['numStories'])
+
+cur_property.numBedrooms = numBedrooms
+cur_property.save(update_fields=['numBedrooms'])
+
+cur_property.pool = pool
+cur_property.save(update_fields=['pool'])
+
+cur_property.propertyType = propertyType
+cur_property.save(update_fields=['propertyType'])
+
+cur_property.roofCover = roofCover
+cur_property.save(update_fields=['roofCover'])
+
+cur_property.propertyAcreage = propertyAcreage
+cur_property.save(update_fields=['propertyAcreage'])
+
+cur_property.style = style
+cur_property.save(update_fields=['style'])
+
+cur_property.numBaths = numBaths
+cur_property.save(update_fields=['numBaths'])
+
+cur_property.yearBuilt = yearBuilt
+cur_property.save(update_fields=['yearBuilt'])
+
+cur_property.apn = apn
+cur_property.save(update_fields=['apn'])
+
+cur_property.assessmentYear = assessmentYear
+cur_property.save(update_fields=['assessmentYear'])
+
+cur_property.taxYear = taxYear
+cur_property.save(update_fields=['taxYear'])
+
+cur_property.totalAssessedValue = totalAssessedValue
+cur_property.save(update_fields=['totalAssessedValue'])
+
+cur_property.taxAmount = taxAmount
+cur_property.save(update_fields=['taxAmount'])
+
+print(squareFootage)
+print(buildingConditionScore)
+print(exteriorWalls)
+print(fireplace)
+print(garageCount)
+print(numStories)
+print(numBedrooms)
+print(pool)
+print(propertyType)
+print(roofCover)
+print(propertyAcreage)
+print(style)
+print(numBaths)
+print(yearBuilt)
+print(apn)
+print(assessmentYear)
+print(taxYear)
+print(totalAssessedValue)
+print(taxAmount)
 
 
+city = json_obj[0]['address_info']['city']
 
 addressComponent = json_obj['results'][0]['address_components']
 for x in addressComponent:

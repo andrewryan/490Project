@@ -9,24 +9,40 @@ from .models import *
 
 def database(request):
     house_list = House.objects.all()
+    zip_codes = House.objects.values('zipCode').distinct()
     # num_of_houses = House.objects.count()
     # queryset_list = House.objects.all()
     category_query = request.GET.get("category")
     condition_query = request.GET.get("condition")
     numBedrooms_query = request.GET.get("numBedrooms")
-    yearBuilt_query = request.GET.get("yearBuilt")
+    zipCode_query = request.GET.get("zipCode")
     propertyType_query = request.GET.get("propertyType")
-    if category_query:
+    # if numBedrooms_query = "More than 5":
+    #     User.objects.filter(numBedrooms__gte=5)
+    if category_query or condition_query or numBedrooms_query or zipCode_query or propertyType_query and numBedrooms_query != "5":
+    # if numBedrooms_query:
         house_list = house_list.filter(
             Q(category__icontains=category_query),
-            # Q(buildingConditionScore__icontains=condition_query),
+            Q(buildingConditionScore__icontains=condition_query),
+            Q(numBedrooms__icontains=numBedrooms_query),
+            Q(zipCode__icontains=zipCode_query),
+            Q(propertyType__icontains=propertyType_query)
+            )
+    # if category_query or condition_query or numBedrooms_query == "More than 5" or zipCode_query or propertyType_query:
+    elif category_query or condition_query or numBedrooms_query or zipCode_query or propertyType_query and numBedrooms_query == "5":
+    # if numBedrooms_query and numBedrooms_query == "More than 5":
+        house_list = house_list.filter(
+            Q(category__icontains=category_query),
+            Q(buildingConditionScore__icontains=condition_query),
             # Q(numBedrooms__icontains=numBedrooms_query),
-            # Q(yearBuilt__icontains=yearBuilt_query),
-            # Q(propertyType__icontains=propertyType_query)
+            Q(numBedrooms__gte=5),
+            Q(zipCode__icontains=zipCode_query),
+            Q(propertyType__icontains=propertyType_query)
             )
 
     num_of_houses = house_list.count()
     context = {
+        'zip_codes':zip_codes,
         'num_of_houses':num_of_houses,
         'house_list':house_list,
         'title':"Code Violations",

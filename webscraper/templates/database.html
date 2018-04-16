@@ -30,10 +30,6 @@
       <div class="row">
          <h6 align="center"> <b>Filter Results By The Following:</b> </h6>
          <div class="small-12 columns">
-            <!-- <form method='GET' action=''>
-               <input type='text' name='q' placeholder='Search listings'/>
-               <input type='submit' value='Search'/>
-            </form> -->
 
             <div class="small-3 columns">
                <form method='GET' action=''>
@@ -90,11 +86,9 @@
                   <label>Zip Code
                      <select name='zipCode'>
                         <option> </option>
-                        <!-- <option value=""> -->
                            {% for object in zip_codes %}
                               <option value="{{ object.zipCode }}">{{ object.zipCode }}</option>
                            {% endfor %}
-                        <!-- </option> -->
                      </select>
                   </label>
                </div>
@@ -125,6 +119,7 @@
 
    <!-- Start update database button -->
    <div class="updateDiv" class="row, small-12 columns">
+
       <div align="right" style="padding-right:2.8%" class="small-7 columns">
          <button id="update" class="button" type="submit">Update Database</button>
       </div>
@@ -132,6 +127,7 @@
       <div align="left" class="small-5 columns">
          <div id="spinner" class="spin" style="background-image: url({% static 'images/ajax-loader.gif' %})"> <br> </div>
       </div>
+
    </div>
    <!-- End update database button -->
 
@@ -140,13 +136,20 @@
 
    <!-- Start show all database button -->
    <div class="updateDiv" class="row, small-12 columns">
+
       <div align="right" class="small-6 columns">
          <h5><b> {{ num_of_houses }} listings in current search </b></h5>
       </div>
 
-      <div class="small-6 columns">
+      <div align="center" class="small-2 columns">
          <button id="showAll" class="button" type="submit">Show all listings </button>
       </div>
+
+      <div align="left" class="small-4 columns">
+         <a href="/downloadLink/" download>Save Results</a>
+         <!-- <button class="button hollow" type="submit">Save Results</button> -->
+      </div>
+
    </div>
    <!-- End show all database button -->
 

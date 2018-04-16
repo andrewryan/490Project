@@ -51,6 +51,7 @@ div.spin{
    background-color: #CACACA;
    background-repeat:no-repeat;
    height: 32px;
+   /* padding-left: 3rem; */
 }
 div.updateDiv{
    height: 40px;

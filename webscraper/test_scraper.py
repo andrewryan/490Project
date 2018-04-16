@@ -439,3 +439,42 @@ addressComponent = json_obj['results'][0]['address_components']
 for x in addressComponent:
     if x['types'] == ['postal_code']:
         print(x['long_name'])
+
+
+########################### CSV File #####################################
+import csv
+from webscraper.models import *
+
+with open('Search Results.csv', 'w', newline='') as csv_file:
+    # csv_file = HttpResponse(content_type='text/csv')
+    # csv_file['Content-Disposition'] = 'attachment; filename="Properties.csv"'
+    thewriter = csv.writer(csv_file)
+    thewriter.writerow(['Case #', 'Street #', 'Street', 'Category'])
+    csv_list = House.objects.all().values_list('caseNum', 'streetNum', 'streetName', 'category')
+    for data in csv_list:
+        thewriter.writerow(data)
+
+# with open('mycsv.csv', 'w', newline='') as f:
+#     thewriter = csv.writer(f)
+#     thewriter.writerow(['col1', 'col2', 'col3'])
+#     thewriter.writerow(['one', 'two', 'three'])
+#
+# csv_list = House.objects.all().values_list('caseNum', 'streetNum', 'streetName', 'category')
+# # writer.writerow([House.caseNum, House.streetNum, House.streetName, House.category, ])
+# with open('mycsv.csv', 'w', newline='') as csv_list:
+#     thewriter = csv.writer(csv_file)
+#     thewriter.writerow(['Case #', 'Street #', 'Street', 'Category'])
+#     # writer.writerow([House.caseNum, House.streetNum, House.streetName, House.category, ])
+#     for data in csv_list:
+#         thewriter.writerow(data)
+#
+#
+# csv_list = House.objects.all().values_list('caseNum', 'streetNum', 'streetName', 'category')
+# with open('mycsv.csv', 'w', newline='') as csv_list:
+#     csv_file = HttpResponse(content_type='text/csv')
+#     csv_file['Content-Disposition'] = 'attachment; filename="Properties.csv"'
+#     writer = csv.writer(csv_file)
+#     writer.writerow(['Case #', 'Street #', 'Street', 'Category'])
+#     # csv_list = House.objects.all().values_list('caseNum', 'streetNum', 'streetName', 'category')
+#     for data in csv_list:
+#         writer.writerow(data)

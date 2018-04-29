@@ -324,14 +324,21 @@ from webscraper.models import *
 
 def propertyDetails(location, zipCode):
 url = 'https://api.housecanary.com/v2/property/details'
-house_streetNum = "3737"
-house_streetName = "32ND ST"
+house_streetNum = "3406"
+house_streetName = "21ST AV 1"
 zipCode = "95820"
-caseNum = "15-019816"
+caseNum = "18-009508"
 address = house_streetNum + " " + house_streetName
 params = {'address': address ,'zipcode': zipCode}
 response = requests.get(url, params=params, auth=('BJ0FREFH19V6WSLM6QPW', 'CIPKYkzl4qjQVzFIlUQGl411w4H6ZPsu'))
 json_obj = response.json()
+
+api_code = json_obj[0]['property/details']['api_code']
+if str(api_code) == "204":
+    print("204")
+else:
+    print("not 204")
+    return
 
 squareFootage = json_obj[0]['property/details']['result']['property']['building_area_sq_ft']
 buildingConditionScore = json_obj[0]['property/details']['result']['property']['building_condition_score']

@@ -1,6 +1,6 @@
 {% extends "default.html" %}
 {% load static %}
-<!-- <img src="{% static "webscraper/static/images/logo.jpg" %}" alt="Lovin Real Estate logo"/> -->
+<!-- <img src="{% static "webscraper/static/images/logo-small.jpg" %}" alt="Lovin Real Estate logo"/> -->
 
 {% block title %}
 {{ title }}
@@ -14,7 +14,7 @@
       <p> </p>
    </div>
    <div class="small-4 columns logo" style="background-image: url({% static 'images/logo-small.jpg' %})">
-      <br><br><br><br><br><br>
+      <br><br><br><br>
    </div>
    <div class="small-6 columns end hide-for-small-only, top-bar-right">
       <h4> Code Violations Database </h4>
@@ -24,7 +24,6 @@
 
 
 <div class="background">
-   <br>
 
    <div class="propertySearch">
       <div class="row">
@@ -142,11 +141,11 @@
       </div>
 
       <div align="center" class="small-2 columns">
-         <button id="showAll" class="button" type="submit">Show all listings </button>
+         <button class="button"><a href="/map/" style="color:white"> View all listings on map </a> </button>
       </div>
 
       <div align="left" class="small-4 columns">
-         <button class="button hollow"> <a href="/downloadLink/" download>Save Results</a> </button>
+         <button class="button hollow"> <a href="/downloadLink/" download> Save Results </a> </button>
       </div>
 
    </div>

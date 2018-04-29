@@ -87,3 +87,11 @@ def downloadLink(request):
     response['Content-Disposition'] = "attachment; filename=%s"%download_name
 
     return response
+
+def map(request):
+    house_list = House.objects.all()
+    context = {
+        'house_list':house_list,
+        'title':"Map Overlay",
+        }
+    return render(request,'map.html',context)

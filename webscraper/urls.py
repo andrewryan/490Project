@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^propertyInfo/(?P<caseNum>[\d]+\-?[\d]+)/$', propertyInfo),
     url(r'^runUpdate', runUpdate),
     url(r'^downloadLink', downloadLink),
+    url(r'^map', map),
 ]

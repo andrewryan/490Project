@@ -32,20 +32,6 @@ def updateDatabase():
 
             elif j == 3:
                 house_category = string.text.strip()
-                # date_added = todaysDate
-                # Used to find lat/long of property to be used for
-                # google maps street view
-                # location = house_streetNum + " " + house_streetName + ", " + "Sacramento" + "," + " CA"
-                # location = location.replace(",","%2C")
-                # location = location.replace(" ","+")
-                # # geo_results = geocodeLookup(location)
-                # addProperty = House(caseNum=house_caseNum,
-                #                     streetNum=house_streetNum,
-                #                     streetName=house_streetName,
-                #                     category=house_category,
-                #                     dateAdded=date_added,
-                #                     daysOld='0',)
-                #                     # geoLookup=geo_results,)
                 j = 0
                 # If the property exists then update the days_old field,
                 # otherwise add the property to the database
@@ -70,8 +56,7 @@ def updateDatabase():
                     lat_long = geo_results[0]
                     zipCode = geo_results[1]
                     date_added = todaysDate
-                    # # Used to retrieve and save additional property details to object
-                    # propertyDetails(house_streetNum, house_streetName, house_caseNum, zipCode)
+
                     addProperty = House(caseNum=house_caseNum,
                                         streetNum=house_streetNum,
                                         streetName=house_streetName,
@@ -121,6 +106,10 @@ def propertyDetails(house_streetNum, house_streetName, house_caseNum, zipCode):
     params = {'address': address ,'zipcode': zipCode}
     response = requests.get(url, params=params, auth=('BJ0FREFH19V6WSLM6QPW', 'CIPKYkzl4qjQVzFIlUQGl411w4H6ZPsu'))
     json_obj = response.json()
+    # Checking response code for error
+    api_code = json_obj[0]['property/details']['api_code']
+    if str(api_code) == "204":
+        return
     # Obtaining results from json response
     squareFootage = json_obj[0]['property/details']['result']['property']['building_area_sq_ft']
     buildingConditionScore = json_obj[0]['property/details']['result']['property']['building_condition_score']

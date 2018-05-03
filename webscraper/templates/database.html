@@ -9,16 +9,46 @@
 
 {% block content %}
 <!-- Start Top Bar -->
-<div data-container class="row, large-12 columns, top-bar">
-   <div class="small-2 columns end hide-for-small-only ">
+<div data-container class="row, small-12 columns, top-bar">
+
+   <!-- Start grid for small-only screen -->
+   <div class="small-3 columns show-for-small-only">
       <p> </p>
    </div>
-   <div class="small-4 columns logo" style="background-image: url({% static 'images/logo-small.jpg' %})">
+
+   <div class="small-9 columns logo show-for-small-only" style="background-image: url({% static 'images/logo-small.jpg' %})">
       <br><br><br><br>
    </div>
-   <div class="small-6 columns end hide-for-small-only, top-bar-right">
+   <!-- End grid for small-only screen -->
+
+   <!-- Start grid for medium-only screen -->
+   <div class="small-2 columns show-for-medium-only">
+      <p> </p>
+   </div>
+
+   <div class="small-5 columns logo show-for-medium-only" style="background-image: url({% static 'images/logo-small.jpg' %})">
+      <br><br><br><br>
+   </div>
+
+   <div class="small-5 columns end show-for-medium-only" style="padding-top:5%;">
+      <h5> Code Violations Database </h5>
+   </div>
+   <!-- End grid for medium-only screen -->
+
+   <!-- Start grid for large and up screen -->
+   <div class="small-2 columns show-for-large">
+      <p> </p>
+   </div>
+
+   <div class="small-4 columns logo show-for-large" style="background-image: url({% static 'images/logo-small.jpg' %})">
+      <br><br><br><br>
+   </div>
+
+   <div class="small-6 columns end show-for-large" style="padding-top:3%; padding-left:12%;">
       <h4> Code Violations Database </h4>
    </div>
+   <!-- End grid for large and up screen -->
+
 </div>
 <!-- End Top Bar -->
 
@@ -28,9 +58,9 @@
    <div class="propertySearch">
       <div class="row">
          <h6 align="center"> <b>Filter Results By The Following:</b> </h6>
-         <div class="small-12 columns">
+         <div class="large-12 columns">
 
-            <div class="small-3 columns">
+            <div class="large-3 columns">
                <form method='GET' action=''>
 
                   <label>Category
@@ -55,7 +85,7 @@
                   </label>
                </div>
 
-               <div class="small-2 columns">
+               <div class="large-2 columns">
                   <label>Condition Rating
                      <select name='condition'>
                         <option> </option>
@@ -68,8 +98,8 @@
                   </label>
                </div>
 
-               <div class="small-2 columns">
-                  <label>Number Of Bedrooms
+               <div class="large-2 columns">
+                  <label>Bedrooms
                      <select name='numBedrooms'>
                         <option> </option>
                         <option value="1"> 1 </option>
@@ -81,7 +111,7 @@
                   </label>
                </div>
 
-               <div class="small-2 columns">
+               <div class="large-2 columns">
                   <label>Zip Code
                      <select name='zipCode'>
                         <option> </option>
@@ -92,7 +122,7 @@
                   </label>
                </div>
 
-               <div class="small-2 columns">
+               <div class="large-2 columns">
                   <label>Property Type
                      <select name='propertyType'>
                         <option> </option>
@@ -105,8 +135,15 @@
                   </label>
                </div>
 
-               <div class="small-1 columns" style="padding-top: 23px">
+               <div class="large-1 columns show-for-large" style="padding-top: 23px">
                   <button id="search" class="button" type="submit">Search</button>
+               </div>
+
+               <div class="large-1 columns show-for-small-only" style="padding-top: 23px">
+                  <button id="search" class="button expanded" type="submit">Search</button>
+               </div>
+               <div class="large-1 columns show-for-medium-only" style="padding-top: 23px">
+                  <button id="search" class="button expanded" type="submit">Search</button>
                </div>
 
             </form>
@@ -119,7 +156,11 @@
    <!-- Start update database button -->
    <div class="updateDiv" class="row, small-12 columns">
 
-      <div align="right" style="padding-right:2.8%" class="small-7 columns">
+      <div align="right" style="padding-right:2.8%" class="small-7 columns hide-for-small-only">
+         <button id="update" class="button" type="submit">Update Database</button>
+      </div>
+
+      <div align="center" class="small-7 columns show-for-small-only">
          <button id="update" class="button" type="submit">Update Database</button>
       </div>
 
@@ -152,15 +193,17 @@
    <!-- End show all database button -->
 
    <!-- Start property table -->
-   <div class="tableDiv">
+   <div class="tablediv row small-12 columns" style="padding-left:0em;">
+      <div class="small-1 columns show-for-medium"> <p> </p> </div>
+      <div class="small-10 columns show-for-medium">
       <table class="hover">
          <thead>
             <tr>
-            <th width="150">Case #</th>
-            <th width="150">Street #</th>
-            <th width="200">Street Name</th>
-            <th width="300">Category</th>
-            <th width="100">Days Old</th>
+            <th width="15%">Case #</th>
+            <th width="15%">Street #</th>
+            <th width="20%">Street Name</th>
+            <th width="30%">Category</th>
+            <th width="10%">Days Old</th>
             </tr>
          </thead>
 
@@ -178,7 +221,65 @@
          </tbody>
       </table>
    </div>
+
+   <div class="small-12 columns show-for-small-only" style="padding-left:0em;" align="left">
+      <table class="hover">
+         <thead>
+            <tr>
+            <th width="15%">Case #</th>
+            <th width="15%">Street #</th>
+            <th width="20%">Street Name</th>
+            <th width="30%">Category</th>
+            <th width="10%">Days Old</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for object in house_list %}
+            <tr>
+               <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
+               <td> {{ object.streetNum }} </td>
+               <td> {{ object.streetName }} </td>
+               <td> {{ object.category }} </td>
+               <td> {{ object.daysOld }} </td>
+            </tr>
+            {% endfor %}
+
+         </tbody>
+      </table>
+   </div>
+   <div class="small-1 columns show-for-medium"> <p> </p>  </div>
+   </div>
    <!-- End property table -->
+
+   <!-- Start property table -->
+  <!-- <div class="tableDiv row small-12 columns">
+     <table class="hover">
+        <thead>
+           <tr>
+           <th width="150">Case #</th>
+           <th width="150">Street #</th>
+           <th width="200">Street Name</th>
+           <th width="300">Category</th>
+           <th width="100">Days Old</th>
+           </tr>
+        </thead>
+
+        <tbody>
+           {% for object in house_list %}
+           <tr>
+              <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
+              <td> {{ object.streetNum }} </td>
+              <td> {{ object.streetName }} </td>
+              <td> {{ object.category }} </td>
+              <td> {{ object.daysOld }} </td>
+           </tr>
+           {% endfor %}
+
+        </tbody>
+     </table>
+  </div> -->
+  <!-- End property table -->
 </div>
 
 {% endblock %}

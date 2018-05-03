@@ -9,16 +9,46 @@
 
 {% block content %}
 <!-- Start Top Bar -->
-<div data-container class="row, large-12 columns, top-bar">
-   <div class="small-2 columns end hide-for-small-only ">
+<div data-container class="row, small-12 columns, top-bar">
+
+   <!-- Start grid for small-only screen -->
+   <div class="small-3 columns show-for-small-only">
       <p> </p>
    </div>
-   <div class="small-4 columns logo" style="background-image: url({% static 'images/logo-small.jpg' %})">
+
+   <div class="small-9 columns logo show-for-small-only" style="background-image: url({% static 'images/logo-small.jpg' %})">
       <br><br><br><br>
    </div>
-   <div class="small-6 columns end hide-for-small-only, top-bar-right">
+   <!-- End grid for small-only screen -->
+
+   <!-- Start grid for medium-only screen -->
+   <div class="small-2 columns show-for-medium-only">
+      <p> </p>
+   </div>
+
+   <div class="small-5 columns logo show-for-medium-only" style="background-image: url({% static 'images/logo-small.jpg' %})">
+      <br><br><br><br>
+   </div>
+
+   <div class="small-5 columns end show-for-medium-only" style="padding-top:5%;">
+      <h5> Code Violations Database </h5>
+   </div>
+   <!-- End grid for medium-only screen -->
+
+   <!-- Start grid for large and up screen -->
+   <div class="small-2 columns show-for-large">
+      <p> </p>
+   </div>
+
+   <div class="small-4 columns logo show-for-large" style="background-image: url({% static 'images/logo-small.jpg' %})">
+      <br><br><br><br>
+   </div>
+
+   <div class="small-6 columns end show-for-large" style="padding-top:3%; padding-left:12%;">
       <h4> Code Violations Database </h4>
    </div>
+   <!-- End grid for large and up screen -->
+
 </div>
 <!-- End Top Bar -->
 
@@ -27,7 +57,9 @@
    <br>
    <h4> Showing All Properties</h4>
 
+   <!-- <div class="show-for-small-only" id="map" style="height: 300px; width: 350px;"> </div> -->
    <div id="map" style="height: 600px; width: 800px;"> </div>
+
    <script>
       function initMap() {
          var map = new google.maps.Map(document.getElementById('map'), {
@@ -54,6 +86,7 @@
          {% endfor %}
       }
    </script>
+
    <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWGLTRDyhM0EuhzZ3Jfk1WqA5MbHjrt78&callback=initMap">
    </script>

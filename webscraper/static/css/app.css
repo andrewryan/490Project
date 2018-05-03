@@ -2,6 +2,7 @@
 div.top-bar{
   background-color: white;
   height: 120px;
+  width: 100%;
   border-right: 2px solid #CACACA;
   border-left: 2px solid #CACACA;
   border-top: 2px solid #CACACA;
@@ -11,10 +12,10 @@ div.top-bar-left{
   font-family: lucida;
   font-size: 40px;
 }
-div.top-bar-right{
+/* div.top-bar-right{
   padding-top: 3%;
-  padding-left:10%
-}
+  padding-left: 10%;
+} */
 a.linkColor{
   color: #000000;
 }

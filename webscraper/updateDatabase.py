@@ -70,6 +70,8 @@ def updateDatabase():
                     if house_streetNum != "" and house_streetName != "":
                         propertyDetails(house_streetNum, house_streetName, house_caseNum, zipCode)
         i += 1
+    # Update complete, iterated through all code violation listings
+    return
 
 def geocodeLookup(location):
     url = "https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -97,7 +99,7 @@ def geocodeLookup(location):
         else:
             geoLookup = ""
         if 'zipCode' not in locals():
-            zipCode = ""
+            zipCode = "00000"
         return(geoLookup, zipCode)
 
 def propertyDetails(house_streetNum, house_streetName, house_caseNum, zipCode):

@@ -328,6 +328,13 @@ house_streetNum = "3406"
 house_streetName = "21ST AV 1"
 zipCode = "95820"
 caseNum = "18-009508"
+
+house_streetNum = "0"
+house_streetName = "4TH AV"
+# zipCode = "95818"
+caseNum = "18-011851"
+zipCode = "00000"
+
 address = house_streetNum + " " + house_streetName
 params = {'address': address ,'zipcode': zipCode}
 response = requests.get(url, params=params, auth=('BJ0FREFH19V6WSLM6QPW', 'CIPKYkzl4qjQVzFIlUQGl411w4H6ZPsu'))
@@ -339,6 +346,8 @@ if str(api_code) == "204":
 else:
     print("not 204")
     return
+
+status = json_obj[0]['property/details']['results']['status']
 
 squareFootage = json_obj[0]['property/details']['result']['property']['building_area_sq_ft']
 buildingConditionScore = json_obj[0]['property/details']['result']['property']['building_condition_score']

@@ -70,7 +70,7 @@ def propertyInfo(request, caseNum):
     return render(request,'propertyInfo.html',context)
 
 def runUpdate(request):
-    # updateDatabase()
+    updateDatabase()
     context = {
         'title':"Update Database",
         }

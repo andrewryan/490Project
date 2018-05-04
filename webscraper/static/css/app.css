@@ -61,7 +61,7 @@ div.logo{
    background-repeat:no-repeat;
    background-size: 55% 100%;
 }
-div.scalable_map{
+div.responsive_map{
    width:60%;
    height:500px;
 }

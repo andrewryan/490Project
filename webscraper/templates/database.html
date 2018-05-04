@@ -194,92 +194,72 @@
 
    <!-- Start property table -->
    <div class="tablediv row small-12 columns" style="padding-left:0em;">
-      <div class="small-1 columns show-for-medium"> <p> </p> </div>
+
+      <div class="small-1 columns show-for-medium">
+         <p> </p>
+      </div>
+
       <div class="small-10 columns show-for-medium">
-      <table class="hover">
-         <thead>
-            <tr>
-            <th width="15%">Case #</th>
-            <th width="15%">Street #</th>
-            <th width="20%">Street Name</th>
-            <th width="30%">Category</th>
-            <th width="10%">Days Old</th>
-            </tr>
-         </thead>
+         <table class="hover">
+            <thead>
+               <tr>
+               <th width="15%">Case #</th>
+               <th width="15%">Street #</th>
+               <th width="20%">Street Name</th>
+               <th width="30%">Category</th>
+               <th width="10%">Days Old</th>
+               </tr>
+            </thead>
 
-         <tbody>
-            {% for object in house_list %}
-            <tr>
-               <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
-               <td> {{ object.streetNum }} </td>
-               <td> {{ object.streetName }} </td>
-               <td> {{ object.category }} </td>
-               <td> {{ object.daysOld }} </td>
-            </tr>
-            {% endfor %}
+            <tbody>
+               {% for object in house_list %}
+               <tr>
+                  <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
+                  <td> {{ object.streetNum }} </td>
+                  <td> {{ object.streetName }} </td>
+                  <td> {{ object.category }} </td>
+                  <td> {{ object.daysOld }} </td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
 
-         </tbody>
-      </table>
-   </div>
+      <!-- Start grid for small-only screen -->
+      <div class="small-12 columns show-for-small-only" style="padding-left:0em;" align="left">
+         <table class="hover">
+            <thead>
+               <tr>
+               <th width="15%">Case #</th>
+               <th width="15%">Street #</th>
+               <th width="20%">Street Name</th>
+               <th width="30%">Category</th>
+               <th width="10%">Days Old</th>
+               </tr>
+            </thead>
 
-   <div class="small-12 columns show-for-small-only" style="padding-left:0em;" align="left">
-      <table class="hover">
-         <thead>
-            <tr>
-            <th width="15%">Case #</th>
-            <th width="15%">Street #</th>
-            <th width="20%">Street Name</th>
-            <th width="30%">Category</th>
-            <th width="10%">Days Old</th>
-            </tr>
-         </thead>
+            <tbody>
+               {% for object in house_list %}
+               <tr>
+                  <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
+                  <td> {{ object.streetNum }} </td>
+                  <td> {{ object.streetName }} </td>
+                  <td> {{ object.category }} </td>
+                  <td> {{ object.daysOld }} </td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+      <!-- End grid for small-only screen -->
 
-         <tbody>
-            {% for object in house_list %}
-            <tr>
-               <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
-               <td> {{ object.streetNum }} </td>
-               <td> {{ object.streetName }} </td>
-               <td> {{ object.category }} </td>
-               <td> {{ object.daysOld }} </td>
-            </tr>
-            {% endfor %}
+      <div class="small-1 columns show-for-medium"> 
+         <p> </p>
+      </div>
 
-         </tbody>
-      </table>
-   </div>
-   <div class="small-1 columns show-for-medium"> <p> </p>  </div>
    </div>
    <!-- End property table -->
 
-   <!-- Start property table -->
-  <!-- <div class="tableDiv row small-12 columns">
-     <table class="hover">
-        <thead>
-           <tr>
-           <th width="150">Case #</th>
-           <th width="150">Street #</th>
-           <th width="200">Street Name</th>
-           <th width="300">Category</th>
-           <th width="100">Days Old</th>
-           </tr>
-        </thead>
-
-        <tbody>
-           {% for object in house_list %}
-           <tr>
-              <td> <a href="/propertyInfo/{{ object.caseNum }}"> {{ object.caseNum }}</a> </td>
-              <td> {{ object.streetNum }} </td>
-              <td> {{ object.streetName }} </td>
-              <td> {{ object.category }} </td>
-              <td> {{ object.daysOld }} </td>
-           </tr>
-           {% endfor %}
-
-        </tbody>
-     </table>
-  </div> -->
-  <!-- End property table -->
 </div>
 
 {% endblock %}

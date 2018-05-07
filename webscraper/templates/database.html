@@ -64,7 +64,7 @@
                <form method='GET' action=''>
 
                   <label>Category
-                     <select name='category'>
+                     <select name='category' >
                         <option> </option>
                         <option value="Substandard Vacant Building"> Substandard Vacant Building </option>
                         <option value="Substandard Building"> Substandard Building </option>
@@ -153,8 +153,21 @@
 
    </div>
 
+   <div>
+      {% if request.GET.category or request.GET.condition or request.GET.numBedrooms or request.GET.zipCode or request.GET.propertyType %}
+         <p align="center">
+            <b> Current Search: </b> <br>
+            {% if request.GET.category %} <b>Category:</b> {{ request.GET.category }} {% endif %}
+            {% if request.GET.condition %} <b>Condition:</b> {{ request.GET.condition }} {% endif %}
+            {% if request.GET.numBedrooms %} <b>Bedrooms:</b> {{ request.GET.numBedrooms }} {% endif %}
+            {% if request.GET.zipCode %} <b>Zip Code:</b> {{ request.GET.zipCode }} {% endif %}
+            {% if request.GET.propertyType %} <b>Property Type:</b> {{ request.GET.propertyType }} {% endif %}
+         </p>
+      {% endif %}
+   </div>
+
    <!-- Start update database button -->
-   <div class="updateDiv" class="row, small-12 columns">
+   <!-- <div class="updateDiv" class="row, small-12 columns">
 
       <div align="right" style="padding-right:2.8%" class="small-7 columns hide-for-small-only">
          <button id="update" class="button" type="submit">Update Database</button>
@@ -168,7 +181,7 @@
          <div id="spinner" class="spin" style="background-image: url({% static 'images/ajax-loader.gif' %})"> <br> </div>
       </div>
 
-   </div>
+   </div> -->
    <!-- End update database button -->
 
 
@@ -253,7 +266,7 @@
       </div>
       <!-- End grid for small-only screen -->
 
-      <div class="small-1 columns show-for-medium"> 
+      <div class="small-1 columns show-for-medium">
          <p> </p>
       </div>
 

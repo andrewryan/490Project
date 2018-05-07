@@ -12,10 +12,6 @@ div.top-bar-left{
   font-family: lucida;
   font-size: 40px;
 }
-/* div.top-bar-right{
-  padding-top: 3%;
-  padding-left: 10%;
-} */
 a.linkColor{
   color: #000000;
 }
@@ -52,7 +48,6 @@ div.spin{
    background-color: #CACACA;
    background-repeat:no-repeat;
    height: 32px;
-   /* padding-left: 3rem; */
 }
 div.updateDiv{
    height: 40px;

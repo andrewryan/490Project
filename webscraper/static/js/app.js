@@ -8,5 +8,4 @@ document.getElementById("update").addEventListener("click", function(){
     $.ajax({
       url: '/runUpdate/',
     });
-
 });

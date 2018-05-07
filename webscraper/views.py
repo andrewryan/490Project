@@ -19,6 +19,7 @@ def database(request):
     numBedrooms_query = request.GET.get("numBedrooms")
     zipCode_query = request.GET.get("zipCode")
     propertyType_query = request.GET.get("propertyType")
+
     if category_query or condition_query or numBedrooms_query or zipCode_query or propertyType_query and numBedrooms_query != "5":
         house_list = house_list.filter(
             Q(category__icontains=category_query),
@@ -70,7 +71,7 @@ def propertyInfo(request, caseNum):
     return render(request,'propertyInfo.html',context)
 
 def runUpdate(request):
-    updateDatabase()
+    # updateDatabase()
     context = {
         'title':"Update Database",
         }
@@ -79,7 +80,7 @@ def runUpdate(request):
 
 def downloadLink(request):
     filename     = "SearchResults.csv"
-    download_name ="Search Results.csv"
+    download_name = "Search Results.csv"
     wrapper      = FileWrapper(open(filename))
     content_type = mimetypes.guess_type(filename)[0]
     response     = HttpResponse(wrapper,content_type=content_type)

@@ -168,19 +168,15 @@
 
    <!-- Start update database button -->
    <!-- <div class="updateDiv" class="row, small-12 columns">
-
       <div align="right" style="padding-right:2.8%" class="small-7 columns hide-for-small-only">
          <button id="update" class="button" type="submit">Update Database</button>
       </div>
-
       <div align="center" class="small-7 columns show-for-small-only">
          <button id="update" class="button" type="submit">Update Database</button>
       </div>
-
       <div align="left" class="small-5 columns">
          <div id="spinner" class="spin" style="background-image: url({% static 'images/ajax-loader.gif' %})"> <br> </div>
       </div>
-
    </div> -->
    <!-- End update database button -->
 
@@ -247,7 +243,7 @@
                <th width="15%">Street #</th>
                <th width="20%">Street Name</th>
                <th width="30%">Category</th>
-               <th width="10%">Days Old</th>
+               <!-- <th width="10%">Days Old</th> -->
                </tr>
             </thead>
 
@@ -258,7 +254,7 @@
                   <td> {{ object.streetNum }} </td>
                   <td> {{ object.streetName }} </td>
                   <td> {{ object.category }} </td>
-                  <td> {{ object.daysOld }} </td>
+                  <!-- <td> {{ object.daysOld }} </td> -->
                </tr>
                {% endfor %}
             </tbody>

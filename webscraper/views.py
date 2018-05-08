@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.db.models import Q
-from .deleteDatabase import deleteDatabase
 from .updateDatabase import updateDatabase
 import os, tempfile, zipfile, csv
 from wsgiref.util import FileWrapper
@@ -38,6 +37,8 @@ def database(request):
             )
 
     with open('SearchResults.csv', 'w', newline='') as csv_file:
+    #  newline='' is invalid and breaks when hosting using gunicorn/nginx
+    # with open('SearchResults.csv', 'w') as csv_file:
         thewriter = csv.writer(csv_file)
         thewriter.writerow(['Case #', 'Street #', 'Street', 'Category'])
         csv_list = house_list.values_list('caseNum', 'streetNum', 'streetName', 'category')
